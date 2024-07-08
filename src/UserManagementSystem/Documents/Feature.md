@@ -1,10 +1,24 @@
 ﻿# Kullanıcı Yönetim Sistemi
 
-Kullanıcı Bilgileri
-Kullanıcı Rolleri
-Rol Yetkileri
-Token ile Giriş işlemleri yapıyoruz.
-Mail ile onaylı hesap kayıt işlemi yapılıyor.
+*Kullanıcı Bilgileri: Kullanıcı profili yönetimi ve güncelleme.
+
+*Kullanıcı Rolleri: Roller ve kullanıcıların bu rollere atanması.
+
+*Oturum Yönetimi: Aktif oturumları görüntüleme ve sonlandırma yeteneği.
+
+*Token ile Giriş: JWT ile kimlik doğrulama ve yetkilendirme.
+
+*Rol Yetkileri: Rol bazlı erişim kontrolü.
+
+*Mail ile Onaylı Hesap Kayıt: E-posta doğrulama ve hesap aktivasyonu.
+
+*Şifre Sıfırlama: Kullanıcıların e-posta yoluyla şifrelerini sıfırlama imkanı.
+
+*Kullanıcı Etkinlik Günlüğü: Kullanıcıların giriş ve diğer önemli eylemlerinin kaydını tutma.
+
+*Detaylı Hata ve Loglama: Sistem hatalarını ve önemli olayları kaydetme ve izleme.
+
+
 
 
 
