@@ -1,2 +1,2 @@
 # GTS-Backend
-Görev Takip Sistemi uygulmasının backend bölümün bulunduğu alan
+Görev Takip Sistemi aplikasyonunun backend bölümün bulunduğu alan
