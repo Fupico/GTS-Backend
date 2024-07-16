@@ -18,7 +18,7 @@ namespace UserManagementSystem.Extensions
 
             services.AddIdentity<FupiUser, IdentityRole>(Opt =>
             {
-                Opt.User.RequireUniqueEmail = true;
+                Opt.User.RequireUniqueEmail = false;
                 Opt.Password.RequiredUniqueChars = 0;
                 Opt.Password.RequireNonAlphanumeric = false;
                 Opt.Password.RequiredLength = 8;

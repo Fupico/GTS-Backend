@@ -48,10 +48,10 @@ namespace UserManagementSystem.Services.Implementations
                 return ResponseDto<TokenDto>.Fail("Email or Password is wrong", 400, true);
             }
 
-            if (!user.EmailConfirmed)
-            {
-                return ResponseDto<TokenDto>.Fail("Email is not confirmed", 400, true);
-            }
+            //if (!user.EmailConfirmed)
+            //{
+            //    return ResponseDto<TokenDto>.Fail("Email is not confirmed", 400, true);
+            //}
 
 
             var token = _tokenService.CreateToken(user);
