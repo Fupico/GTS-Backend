@@ -188,11 +188,19 @@ Projeyi yerel makinanızda çalıştırmak için aşağıdaki adımları izleyeb
      dotnet restore
      ```
 
-3. **Çalıştırma**
+3. **eğer bu kodu yapıştırıp çalıştırırsanız migration yaparken(update-database)**
+   
+     ```
+     dotnet tool install --global dotnet-ef
+     ```
+
+4. **Çalıştırma**
    - Uygulamayı başlatmak için terminal veya komut istemcisinde aşağıdaki komutu çalıştırın:
      ```
      dotnet run
      ```
+
+
 
 ## Daha Fazla Bilgi
 
