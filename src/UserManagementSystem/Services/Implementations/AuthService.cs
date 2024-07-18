@@ -90,7 +90,7 @@ namespace UserManagementSystem.Services.Implementations
             {
                 // Kullanıcı oluşturma başarısız oldu, hata mesajlarını işleyin ve ResponseDto'yu başarısız olarak döndürün
                 var errors = result.Errors.Select(e => e.Description).ToList();
-                return ResponseDto<NoDataDto>.Fail("Error", 500, true);
+                return ResponseDto<NoDataDto>.Fail(errors, 500);
             }
 
             // 2. Kullanıcıya rol atama gibi ek işlemler yapılabilir
