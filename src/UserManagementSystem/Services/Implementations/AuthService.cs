@@ -90,7 +90,8 @@ namespace UserManagementSystem.Services.Implementations
             {
                 // Kullanıcı oluşturma başarısız oldu, hata mesajlarını işleyin ve ResponseDto'yu başarısız olarak döndürün
                 var errors = result.Errors.Select(e => e.Description).ToList();
-                return ResponseDto<NoDataDto>.Fail(errors, 500);
+                var errorDto = new ErrorDto(errors, isShow: true); // isShow'u ihtiyacınıza göre ayarlayın
+                return ResponseDto<NoDataDto>.Fail(errorDto, 400);
             }
 
             // 2. Kullanıcıya rol atama gibi ek işlemler yapılabilir
@@ -100,8 +101,9 @@ namespace UserManagementSystem.Services.Implementations
             // 3. Birim işlemini kaydet (UnitOfWork kullanımı örneği)
             await _unitOfWork.CommitAsync();
 
+
             // Başarılı yanıt döndürün
-            return ResponseDto<NoDataDto>.Success(200);
+            return ResponseDto<NoDataDto>.Success(new NoDataDto{Message="Success"},200);
         }
 
         public ResponseDto<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto)
