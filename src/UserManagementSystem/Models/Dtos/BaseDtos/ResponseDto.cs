@@ -10,7 +10,7 @@
 
         public bool IsSuccessful { get; set; } // kendi iç yapımızda kullanacağız.
         public ErrorDto? errors { get; set; }
-        public List<string> errorsList { get; set; }
+   
         public static ResponseDto<T> Success(T data, int status)
         {
             return new ResponseDto<T> { Data = data, status = status, IsSuccessful = true };
@@ -23,10 +23,7 @@
         {
             return new ResponseDto<T> { errors = errorDto, status = status, IsSuccessful = false };
         }
-        public static ResponseDto<T> Fail(List<string> errorDto, int status)
-        {
-            return new ResponseDto<T> { errorsList = errorDto, status = status, IsSuccessful = false };
-        }
+      
         public static ResponseDto<T> Fail(string errorMessage, int status, bool isShow)
         {
             var errorDto = new ErrorDto(errorMessage, isShow);
