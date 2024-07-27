@@ -12,7 +12,7 @@ using UserManagementSystem.Models.DbConfig;
 namespace UserManagementSystem.Migrations
 {
     [DbContext(typeof(FupiContext))]
-    [Migration("20240716075245_FirstInitial")]
+    [Migration("20240727132109_FirstInitial")]
     partial class FirstInitial
     {
         /// <inheritdoc />
@@ -190,6 +190,9 @@ namespace UserManagementSystem.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

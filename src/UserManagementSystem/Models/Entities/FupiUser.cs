@@ -8,5 +8,6 @@ namespace UserManagementSystem.Models.Entities
         public string? City { get; set; }
         public string? Name { get; set; }
         public string? Surname { get; set; }
+        public DateTime? DateOfBirth { get; set; }
     }
 }

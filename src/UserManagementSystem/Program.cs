@@ -64,6 +64,7 @@ builder.Services.AddScoped<IUserRefreshTokenService, UserRefreshTokenService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 
