@@ -91,7 +91,7 @@ namespace UserManagementSystem.Services.Implementations
                 // Kullanıcı oluşturma başarısız oldu, hata mesajlarını işleyin ve ResponseDto'yu başarısız olarak döndürün
                 var errors = result.Errors.Select(e => e.Description).ToList();
                 var errorDto = new ErrorDto(errors, isShow: true); // isShow'u ihtiyacınıza göre ayarlayın
-                return ResponseDto<NoDataDto>.Fail(errorDto, 500);
+                return ResponseDto<NoDataDto>.Fail(errorDto, 400);
             }
 
             // 2. Kullanıcıya rol atama gibi ek işlemler yapılabilir
