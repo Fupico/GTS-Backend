@@ -101,8 +101,9 @@ namespace UserManagementSystem.Services.Implementations
             // 3. Birim işlemini kaydet (UnitOfWork kullanımı örneği)
             await _unitOfWork.CommitAsync();
 
+
             // Başarılı yanıt döndürün
-            return ResponseDto<NoDataDto>.Success(200);
+            return ResponseDto<NoDataDto>.Success(new NoDataDto{Message="Success"},200);
         }
 
         public ResponseDto<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto)
