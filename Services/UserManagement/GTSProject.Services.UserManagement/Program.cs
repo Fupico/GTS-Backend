@@ -59,7 +59,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddIdentityWithExt();
-
+builder.Services.AddSingleton<UserDataDto>();
 builder.Services.AddScoped<IUserRefreshTokenService, UserRefreshTokenService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();

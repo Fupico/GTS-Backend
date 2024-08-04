@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using UserManagementSystem.Models.Dtos.BaseDtos;
+using UserManagementSystem.Models.Entities;
 
 namespace UserManagementSystem.Extensions
 {
@@ -73,7 +74,7 @@ namespace UserManagementSystem.Extensions
                 {
                     userIP += " -- " + context.Connection.RemotePort.ToString() + " / " + context.Connection.Id;
                 }
-                var _userManager = context.RequestServices.GetRequiredService<UserManager<IdentityUser>>();
+                var _userManager = context.RequestServices.GetRequiredService<UserManager<FupiUser>>();
 
                 var user = await _userManager.FindByIdAsync(userId);
 
