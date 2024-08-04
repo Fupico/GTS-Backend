@@ -20,6 +20,15 @@ namespace UserManagementSystem.Controllers
             _userService = userService;
         }
 
+        [HttpGet("GetUserProfile")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserProfile()
+        {
+            var result = await _userService.GetUserProfile();
+
+            return ActionResultInstance(result);
+        }
+
         [HttpGet("GetBirthdaysThisWeek")]
         [AllowAnonymous]
         public async Task<IActionResult> GetBirthdaysThisWeek()

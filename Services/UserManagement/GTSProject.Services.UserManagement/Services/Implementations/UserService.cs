@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using GTSProject.Services.UserManagement.Models.Dtos.UserDtos;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using UserManagementSystem.Models.Dtos.BaseDtos;
 using UserManagementSystem.Models.Dtos.UserDtos;
 using UserManagementSystem.Models.Entities;
@@ -10,10 +12,12 @@ namespace UserManagementSystem.Services.Implementations
     public class UserService : IUserService
     {
         private readonly UserManager<FupiUser> _userManager;
+        private readonly UserDataDto _dataDto;
 
-        public UserService(UserManager<FupiUser> userManager)
+        public UserService(UserManager<FupiUser> userManager, UserDataDto dataDto)
         {
             _userManager = userManager;
+            _dataDto = dataDto;
         }
 
         public async Task<ResponseDto<List<GetBirthdaysThisWeekDto>>> GetBirthdaysThisWeek()
@@ -38,6 +42,27 @@ namespace UserManagementSystem.Services.Implementations
             return new ResponseDto<List<GetBirthdaysThisWeekDto>>
             {
                 Data = birthdaysThisWeekUser,
+                status = 200,
+                IsSuccessful = true,
+            };
+        }
+
+        public async Task<ResponseDto<GetUserProfileDto>> GetUserProfile()
+        {
+            var getuserprofile = await _userManager.Users.Where(u => u.Id == _dataDto.UserId.ToString()
+            ).Select(x => new GetUserProfileDto
+            {
+                UserId = x.Id,
+                Email = x.Email,
+                Name = x.Name,
+                Surname = x.Surname,
+                City = x.City,
+                BirthDate = (DateTime)x.DateOfBirth
+            }).FirstOrDefaultAsync();
+
+            return new ResponseDto<GetUserProfileDto>
+            {
+                Data = getuserprofile,
                 status = 200,
                 IsSuccessful = true,
             };

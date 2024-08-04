@@ -117,6 +117,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors("AllowAllOrigins");
 app.UseAuthorization();
+app.UseMiddleware<JwtTokenValidationMiddleware>();
 
 app.MapControllers();
 
