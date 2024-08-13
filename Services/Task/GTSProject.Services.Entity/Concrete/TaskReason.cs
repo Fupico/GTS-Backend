@@ -2,5 +2,7 @@
 {
     public class TaskReason // Talep nedenlerini içerir.
     {
+        public int Id { get; set; }
+        public int ProductId { get; set; }
     }
 }
