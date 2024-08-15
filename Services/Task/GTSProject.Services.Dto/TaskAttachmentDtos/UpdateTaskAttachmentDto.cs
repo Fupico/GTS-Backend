@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskAttachmentDtos
 {
-    public class TaskAttachment // Talepte eklenmiş dosyaları tutar.
+    public class UpdateTaskAttachmentDto
     {
         public int Id { get; set; }
         public int TaskId { get; set; }

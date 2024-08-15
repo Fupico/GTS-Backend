@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskDeadLineLogDtos
 {
-    public class TaskDeadLineLog // Talep yönetimi,talep son teslim tarihi loglarını tutar.
+    public class GetByIdTaskDeadLineLogDto
     {
         public int Id { get; set; }
         public int TaskId { get; set; }

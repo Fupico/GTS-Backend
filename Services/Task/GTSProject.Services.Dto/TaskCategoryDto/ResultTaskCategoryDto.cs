@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskCategoryDto
 {
-    public class TaskCategory // Departman talep kategorilerini içerir.
+    public class ResultTaskCategoryDto
     {
         public int Id { get; set; }
         public int ParentId { get; set; }

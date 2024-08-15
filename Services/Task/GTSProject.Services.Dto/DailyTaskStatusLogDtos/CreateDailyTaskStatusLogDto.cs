@@ -1,8 +1,13 @@
-﻿namespace GTSProject.Services.Task.Models.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.DailyTaskStatusLogDtos
 {
-    public class DailyTaskStatusLog // Günlük talep durumlarının kayıtları içerir.
+    public class CreateDailyTaskStatusLogDto
     {
-        public int Id { get; set; }
         public int TaskId { get; set; }
         public int StatusId { get; set; }
         public int AssigneeId { get; set; }

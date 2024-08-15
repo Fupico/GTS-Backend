@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskAutoAssignRulesDtos
 {
-    public class TaskAutoAssignRules // Otomatik talep atama kurallarını tutar.
+    public class ResultTaskAutoAssignRulesDto
     {
         public int Id { get; set; }
         public string? RuleType { get; set; }
