@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="TaskRelationTypeDtos\" />
+    <Folder Include="TaskProductDtos\" />
+  </ItemGroup>
+
 </Project>

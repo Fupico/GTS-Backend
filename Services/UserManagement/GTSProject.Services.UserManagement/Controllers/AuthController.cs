@@ -9,14 +9,9 @@ namespace UserManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : CustomizedController
+    public class AuthController(IAuthService _authService) : CustomizedController
     {
-        private readonly IAuthService _authService;
-
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
+        //private readonly IAuthService _authService = authService;
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
