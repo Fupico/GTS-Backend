@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Entity"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Dto", "Services\Task\GTSProject.Services.Dto\GTSProject.Services.Dto.csproj", "{FB509D40-6453-4567-AA49-980E86DABAF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTSProject.Services.Business", "Services\Task\GTSProject.Services.Business\GTSProject.Services.Business.csproj", "{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Business", "Services\Task\GTSProject.Services.Business\GTSProject.Services.Business.csproj", "{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTSProject.Services.CoreTask", "GTSProject.Services.CoreTask\GTSProject.Services.CoreTask.csproj", "{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{C5F199AB-9FFE-458D-B48A-2EED564EFC50} = {E67ACD10-0635-4FEB-BF3C-E6A0FD702780}
 		{FB509D40-6453-4567-AA49-980E86DABAF7} = {E67ACD10-0635-4FEB-BF3C-E6A0FD702780}
 		{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8} = {E67ACD10-0635-4FEB-BF3C-E6A0FD702780}
+		{B03CD37E-8F5F-4730-B7D3-93118A39DEAC} = {E67ACD10-0635-4FEB-BF3C-E6A0FD702780}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1AA6E7F7-114E-4A62-B566-47B842A983A9}

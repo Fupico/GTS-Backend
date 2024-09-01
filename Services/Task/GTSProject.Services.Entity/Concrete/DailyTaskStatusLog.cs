@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Task.Models.Entities
+﻿using GTSProject.Services.CoreTask.Entity;
+
+namespace GTSProject.Services.Task.Models.Entities
 {
-    public class DailyTaskStatusLog // Günlük talep durumlarının kayıtları içerir.
+    public class DailyTaskStatusLog : IEntity // Günlük talep durumlarının kayıtları içerir.
     {
         public int Id { get; set; }
         public int TaskId { get; set; }
