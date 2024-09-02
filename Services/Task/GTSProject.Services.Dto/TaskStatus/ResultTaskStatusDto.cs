@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskStatus
 {
-    public class TaskStatus // Talep durumlarını içerir. (statüleri)
+    public class ResultTaskStatusDto
     {
         public int Id { get; set; }
         public int KanbanStatusId { get; set; }

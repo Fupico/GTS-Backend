@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskTag
 {
-    public class TaskTag // Talep ek bilgilerini tutar.
+    public class GetByIdTaskTagDto
     {
         public int Id { get; set; }
         public int TaskId { get; set; }
@@ -17,7 +23,7 @@
         public string? CellPhone { get; set; }
         public string? Product { get; set; }
         public int AgencyRegionId { get; set; }
-        public string?  PolicyNumber { get; set; }
+        public string? PolicyNumber { get; set; }
         public string? OfferNumber { get; set; }
         public string? DamageNumber { get; set; }
         public string? Plate { get; set; }
