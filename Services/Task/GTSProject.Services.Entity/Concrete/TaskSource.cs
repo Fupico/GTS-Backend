@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskSource // Talep kaynağını içerir.
+    public class TaskSource : IEntity // Talep kaynağını içerir.
     {
     }
 }

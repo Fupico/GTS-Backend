@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Dto", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Business", "Services\Task\GTSProject.Services.Business\GTSProject.Services.Business.csproj", "{EBC588D8-FDD7-49B5-AD5B-B316E684CBC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTSProject.Services.CoreTask", "GTSProject.Services.CoreTask\GTSProject.Services.CoreTask.csproj", "{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTSProject.Services.Core", "GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj", "{B03CD37E-8F5F-4730-B7D3-93118A39DEAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

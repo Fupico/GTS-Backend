@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskCategory // Departman talep kategorilerini içerir.
+    public class TaskCategory : IEntity // Departman talep kategorilerini içerir.
     {
         public int Id { get; set; }
         public int ParentId { get; set; }

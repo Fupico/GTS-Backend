@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.CoreTask.csproj" />
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
   </ItemGroup>
 
 </Project>

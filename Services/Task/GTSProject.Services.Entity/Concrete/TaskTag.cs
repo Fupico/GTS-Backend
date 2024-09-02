@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskTag // Talep ek bilgilerini tutar.
+    public class TaskTag : IEntity // Talep ek bilgilerini tutar.
     {
     }
 }

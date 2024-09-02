@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskEffortType // Talep eforu tiplerini içerir.
+    public class TaskEffortType : IEntity // Talep eforu tiplerini içerir.
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }

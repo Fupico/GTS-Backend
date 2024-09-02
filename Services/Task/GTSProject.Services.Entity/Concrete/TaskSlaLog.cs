@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskSlaLog // Talep sla kayıtlarını tutar.
+    public class TaskSlaLog : IEntity // Talep sla kayıtlarını tutar.
     {
         public int Id { get; set; }
         public int TaskId { get; set; }

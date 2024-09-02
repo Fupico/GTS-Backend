@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.CoreTask.DataAccess.EntityFramework;
+﻿using GTSProject.Services.Core.DataAccess.EntityFramework;
 using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.DataAccess.Concrete.EntityFramework;
 using GTSProject.Services.Task.Models.Entities;

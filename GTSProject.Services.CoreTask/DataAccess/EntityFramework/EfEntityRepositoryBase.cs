@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.CoreTask.Entity;
+﻿using GTSProject.Services.Core.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GTSProject.Services.CoreTask.DataAccess.EntityFramework
+namespace GTSProject.Services.Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext>(TContext _tContext) : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()

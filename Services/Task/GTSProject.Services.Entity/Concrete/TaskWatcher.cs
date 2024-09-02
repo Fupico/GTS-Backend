@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskWatcher // Talep gözlemcilerini tutar. (Takip edenler)
+    public class TaskWatcher : IEntity // Talep gözlemcilerini tutar. (Takip edenler)
     {
     }
 }

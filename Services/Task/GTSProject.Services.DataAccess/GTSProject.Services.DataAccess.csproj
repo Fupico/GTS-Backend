@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.CoreTask.csproj" />
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
     <ProjectReference Include="..\GTSProject.Services.Entity\GTSProject.Services.Entity.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskResponsible // Talep sorumluluklarını tutar.
+    public class TaskResponsible : IEntity // Talep sorumluluklarını tutar.
     {
         public int Id { get; set; }
         public int TaskId { get; set; }

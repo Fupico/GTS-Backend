@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.CoreTask.DataAccess;
+﻿using GTSProject.Services.Core.DataAccess;
 using GTSProject.Services.Task.Models.Entities;
 using System;
 using System.Collections.Generic;

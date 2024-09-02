@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.CoreTask.Entity;
+﻿using GTSProject.Services.Core.Entity;
 
 namespace GTSProject.Services.Task.Models.Entities
 {

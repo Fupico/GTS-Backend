@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class Task // Talepler
+    public class Task : IEntity // Talepler
     {
         public int Id { get; set; }
         public int ParentId { get; set; }
