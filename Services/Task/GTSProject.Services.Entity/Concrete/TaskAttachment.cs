@@ -3,14 +3,18 @@
     public class TaskAttachment // Talepte eklenmiş dosyaları tutar.
     {
         public int Id { get; set; }
-        public int TaskId { get; set; }
-        public int CommentId { get; set; }
-        public int UserId { get; set; }
         public string? FolderName { get; set; }
         public string? FileName { get; set; }
-        public bool AgencyCanView { get; set; }
-        public bool ShowOnlyToDepartment { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public bool ShowToAllUser { get; set; }
+
+        #region İlişkiler
+        public Guid TaskId { get; set; }
+        public Task Task { get; set; }
+
+        public int CommentId { get; set; }
+        public TaskComment TaskComment { get; set; }
+
+        public Guid UserId { get; set; } // User servisten gelecek
+        #endregion
     }
 }

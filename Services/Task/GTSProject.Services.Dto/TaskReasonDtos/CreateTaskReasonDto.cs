@@ -8,6 +8,5 @@ namespace GTSProject.Services.Dto.TaskReasonDtos
 {
     public class CreateTaskReasonDto
     {
-        public int ProductId { get; set; }
     }
 }

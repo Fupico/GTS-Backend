@@ -9,6 +9,5 @@ namespace GTSProject.Services.Dto.TaskReasonDtos
     public class ResultTaskReasonDto
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
     }
 }
