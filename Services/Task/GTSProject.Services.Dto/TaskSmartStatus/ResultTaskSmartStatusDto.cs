@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskSmartStatus
 {
-    public class TaskSmartStatus // Talep durumlarını tutar. (hangi durumdan hangi duruma gider)
+    public class ResultTaskSmartStatusDto
     {
         public int Id { get; set; }
         public int StatusId { get; set; }

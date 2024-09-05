@@ -10,5 +10,9 @@
         public int Status { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
+
+        #region İlişkiler
+        public ICollection<KeywordToTaskReason> KeywordToTaskReasons { get; set; }
+        #endregion
     }
 }

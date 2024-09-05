@@ -1,6 +1,12 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GTSProject.Services.Dto.TaskSubjectType
 {
-    public class TaskSubjectType // Talep konu türlerini tutar.(Müşteri ilişkileri departmanı)
+    public class GetByIdTaskSubjectTypeDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
