@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskRating // Talep değerlendirmelerini tutar.
+    public class TaskRating : IEntity // Talep değerlendirmelerini tutar.
     {
         public int Id { get; set; }
         public int Score { get; set; }

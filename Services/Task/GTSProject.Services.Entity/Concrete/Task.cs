@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class Task // Talepler
+    public class Task : IEntity // Talepler
     {
         public Guid Id { get; set; }
         public string? Subject { get; set; }
@@ -45,11 +47,21 @@
         public Guid CloserId { get; set; }  // Userdan kapayan kişi idsi gelecek
         public int CloserDepartmentId { get; set; } // Kapayan departman id
 
+<<<<<<< HEAD
         public ICollection<DailyTaskStatusLog> DailyTaskStatuses { get; set; }
+=======
+        public ICollection<DailyTaskStatusLog> DailyTaskStatusLogs { get; set; }
+>>>>>>> DB-Infrastractures
         public ICollection<TaskAttachment> TaskAttachments { get; set; }
         public ICollection<TaskComment> TaskComments { get; set; }
         public TaskRating TaskRating { get; set; }
         public ICollection<TaskRelation> TaskRelations { get; set; }
+<<<<<<< HEAD
+=======
+        public ICollection<TaskResponsible> TaskResponsibles { get; set; }
+        public ICollection<TaskStatusLog> TaskStatusLogs { get; set; }
+        public ICollection<TaskWatcher> TaskWatchers { get; set; }
+>>>>>>> DB-Infrastractures
         #endregion
     }
 }

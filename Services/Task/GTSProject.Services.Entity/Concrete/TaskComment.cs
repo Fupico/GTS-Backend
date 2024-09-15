@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskComment // Talep yönetimi,talep yorumlarını tutar.
+    public class TaskComment : IEntity // Talep yönetimi,talep yorumlarını tutar.
     {
         public Guid Id { get; set; }
         public string? Message { get; set; }

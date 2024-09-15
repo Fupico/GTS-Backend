@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskAutoAssignRules // Otomatik talep atama kurallarını tutar.
+    public class TaskAutoAssignRule : IEntity // Otomatik talep atama kurallarını tutar.
     {
         public int Id { get; set; }
         public string? RuleType { get; set; }

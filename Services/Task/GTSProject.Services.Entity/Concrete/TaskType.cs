@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskType // Talep tiplerini içerir.
+    public class TaskType : IEntity // Talep tiplerini içerir.
     {
         public int Id { get; set; }
         public string Name { get; set; }

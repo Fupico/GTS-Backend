@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskRelation // Talep ilişkilerini içerir.
+    public class TaskRelation : IEntity // Talep ilişkilerini içerir.
     {
         public int Id { get; set; }
 

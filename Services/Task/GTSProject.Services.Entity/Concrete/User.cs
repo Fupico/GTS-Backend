@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class User // Kullanıcı bilgileri
+    public class User : IEntity // Kullanıcı bilgileri
     {
     }
 }

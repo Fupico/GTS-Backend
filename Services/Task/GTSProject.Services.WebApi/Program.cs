@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<TaskServiceContext>(cfg =>
 {
-    cfg.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings:devDb").Value);
+    cfg.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value);
 });
 
 

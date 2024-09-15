@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskAttachment // Talepte eklenmiş dosyaları tutar.
+    public class TaskAttachment : IEntity // Talepte eklenmiş dosyaları tutar.
     {
         public int Id { get; set; }
         public string? FolderName { get; set; }

@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class KeywordToTaskReason // Konu başlığına girilen anahtar kelimeleri tutar.
+    public class KeywordToTaskReason : IEntity  // Konu başlığına girilen anahtar kelimeleri tutar.
     {
         public int Id { get; set; }
         public string Keyword { get; set; }
