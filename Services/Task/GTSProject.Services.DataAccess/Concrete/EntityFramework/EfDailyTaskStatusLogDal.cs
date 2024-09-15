@@ -1,12 +1,6 @@
 ﻿using GTSProject.Services.Core.DataAccess.EntityFramework;
 using GTSProject.Services.DataAccess.Abstract;
-using GTSProject.Services.DataAccess.Concrete.EntityFramework;
-using GTSProject.Services.Task.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GTSProject.Services.Entity.Concrete;
 
 namespace GTSProject.Services.DataAccess.Concrete.EntityFramework
 {

@@ -2,11 +2,7 @@
 
 namespace GTSProject.Services.Entity.Concrete
 {
-<<<<<<< HEAD
-    public class TaskDeadLineLog // Talep yönetimi, talep son teslim tarihi loglarını tutar.
-=======
     public class TaskDeadLineLog : IEntity // Talep yönetimi,talep son teslim tarihi loglarını tutar.
->>>>>>> DB-Infrastractures
     {
         public int Id { get; set; }
         public DateTime DeadLine { get; set; }
