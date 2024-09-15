@@ -1,6 +1,4 @@
-﻿using GTSProject.Services.Entity.Concrete;
-
-namespace GTSProject.Services.Entity.Concrete
+﻿namespace GTSProject.Services.Entity.Concrete
 {
     public class DailyTaskStatusLog : IEntity // Günlük talep durumlarının kayıtları içerir.
     {
