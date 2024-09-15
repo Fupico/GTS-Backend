@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
+  </ItemGroup>
+
 </Project>

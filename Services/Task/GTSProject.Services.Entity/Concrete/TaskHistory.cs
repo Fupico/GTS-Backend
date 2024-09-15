@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskHistory // Talebin tüm loglarını içerir.
+    public class TaskHistory : IEntity // Talebin tüm loglarını içerir.
     {
         public int Id { get; set; }
 

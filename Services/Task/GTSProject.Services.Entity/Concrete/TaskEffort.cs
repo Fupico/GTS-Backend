@@ -1,6 +1,8 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entity;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskEffort // Talep eforlarını içerir.
+    public class TaskEffort : IEntity // Talep eforlarını içerir.
     {
         public int Id { get; set; }
         public int Effort { get; set; }
