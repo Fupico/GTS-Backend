@@ -9,13 +9,13 @@ namespace GTSProject.Services.Entity.Concrete
         public DateTime TaskUpdateDate { get; set; }
 
         #region İlişkiler
-        public Guid TaskId { get; set; }
+        public int TaskId { get; set; }
         public Task Task { get; set; }
 
-        public Guid AssigneeId { get; set; } // User Idsi
+        public int AssigneeId { get; set; } // User Idsi
         public int SprintId { get; set; } // Bununla ilgili class oluşturulacak
 
-        public int StatusId { get; set; }
+        public int TaskStatusId { get; set; }
         public TaskStatus TaskStatus { get; set; }
         #endregion
     }

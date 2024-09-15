@@ -4,7 +4,7 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class Task : IEntity // Talepler
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string? Subject { get; set; }
         public string? Description { get; set; }
         public DateTime DeadLine { get; set; }
@@ -21,7 +21,7 @@ namespace GTSProject.Services.Entity.Concrete
         public string? Color { get; set; }
 
         #region İlişkiler
-        public Guid ParentId { get; set; } // Herhangi bir ilişki gerekmiyor. Üst task.
+        public int ParentId { get; set; } // Herhangi bir ilişki gerekmiyor. Üst task.
 
         public int TaskProjectId { get; set; }
         public TaskProject TaskProject { get; set; }
@@ -29,13 +29,13 @@ namespace GTSProject.Services.Entity.Concrete
         public int TaskTypeId { get; set; }
         public TaskType TaskType { get; set; }
 
-        public Guid ReporterId { get; set; } // Userdan atayan kişi idsi gelecek
-        public Guid AssigneeId { get; set; } // Userdan atanan kişi idsi gelecek
+        public int ReporterId { get; set; } // Userdan atayan kişi idsi gelecek
+        public int AssigneeId { get; set; } // Userdan atanan kişi idsi gelecek
 
         public int CategoryId { get; set; }
         public TaskCategory TaskCategory { get; set; }
 
-        public int StatusId { get; set; }
+        public int TaskStatusId { get; set; }
         public TaskStatus TaskStatus { get; set; }
 
         public int TaskReasonId { get; set; }
@@ -44,10 +44,9 @@ namespace GTSProject.Services.Entity.Concrete
         public int TaskSubjectTypeId { get; set; }
         public TaskSubjectType TaskSubjectType { get; set; }
 
-        public Guid CloserId { get; set; }  // Userdan kapayan kişi idsi gelecek
+        public int CloserId { get; set; }  // Userdan kapayan kişi idsi gelecek
         public int CloserDepartmentId { get; set; } // Kapayan departman id
 
-        public ICollection<DailyTaskStatusLog> DailyTaskStatuses { get; set; }
         public ICollection<DailyTaskStatusLog> DailyTaskStatusLogs { get; set; }
         public ICollection<TaskAttachment> TaskAttachments { get; set; }
         public ICollection<TaskComment> TaskComments { get; set; }

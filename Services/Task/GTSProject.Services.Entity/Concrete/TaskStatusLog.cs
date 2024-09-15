@@ -8,14 +8,14 @@ namespace GTSProject.Services.Entity.Concrete
         public string Description { get; set; }
 
         #region İlişkiler
-        public Guid TaskId { get; set; }
+        public int TaskId { get; set; }
         public Task Task { get; set; }
 
-        public int StatusId { get; set; }
+        public int TaskStatusId { get; set; }
         public TaskStatus TaskStatus { get; set; }
 
-        public Guid AssigneeId { get; set; } // Userdan atayan kişi idsi gelecek
-        public Guid UserId { get; set; } // Userdan atayan kişi idsi gelecek
+        public int AssigneeId { get; set; } // Userdan atayan kişi idsi gelecek
+        public int UserId { get; set; } // Userdan atayan kişi idsi gelecek
         #endregion
     }
 }

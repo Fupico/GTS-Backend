@@ -18,7 +18,7 @@ namespace GTSProject.Services.Entity.Concrete
         public DateTime EndDateTime { get; set; }
 
         #region İlişkiler
-        public Guid? AssigneeId { get; set; } // User servisten gelecek
+        public int? AssigneeId { get; set; } // User servisten gelecek
         #endregion
     }
 }
