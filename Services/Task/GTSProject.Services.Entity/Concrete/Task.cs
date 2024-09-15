@@ -21,7 +21,8 @@ namespace GTSProject.Services.Entity.Concrete
         public string? Color { get; set; }
 
         #region İlişkiler
-        public int ParentId { get; set; } // Herhangi bir ilişki gerekmiyor. Üst task.
+        public int? ParentId { get; set; } // Üst task opsiyonel olarak yapılabilir
+        public Task? ParentTask { get; set; }
 
         public int TaskProjectId { get; set; }
         public TaskProject TaskProject { get; set; }
