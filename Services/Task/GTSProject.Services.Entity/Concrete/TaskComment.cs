@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskComment : IEntity // Talep yönetimi,talep yorumlarını tutar.
+    public class TaskComment : BaseEntity // Talep yönetimi,talep yorumlarını tutar.
     {
         public int Id { get; set; }
         public string? Message { get; set; }
@@ -11,11 +11,12 @@ namespace GTSProject.Services.Entity.Concrete
 
         #region İlişkiler
         public int TaskId { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int UserId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
 
-        public int QuickAnswerId { get; set; } // Sınıfı eklenecek
+        public int QuickAnswerId { get; set; }
+        public virtual QuickAnswer QuickAnswer { get; set; }
 
         public ICollection<TaskAttachment> TaskAttachments { get; set; }
         #endregion

@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskAttachment : IEntity // Talepte eklenmiş dosyaları tutar.
+    public class TaskAttachment : BaseEntity // Talepte eklenmiş dosyaları tutar.
     {
         public int Id { get; set; }
         public string? FolderName { get; set; }
@@ -11,12 +11,12 @@ namespace GTSProject.Services.Entity.Concrete
 
         #region İlişkiler
         public int TaskId { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int CommentId { get; set; }
-        public TaskComment TaskComment { get; set; }
+        public int TaskCommentId { get; set; }
+        public virtual TaskComment TaskComment { get; set; }
 
-        public int UserId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
         #endregion
     }
 }

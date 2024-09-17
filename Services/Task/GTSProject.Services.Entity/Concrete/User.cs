@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class User : IEntity // Kullanıcı bilgileri
+    public class User : BaseEntity // Kullanıcı bilgileri
     {
     }
 }

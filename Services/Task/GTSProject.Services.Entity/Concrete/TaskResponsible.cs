@@ -1,17 +1,17 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskResponsible : IEntity // Talep sorumluluklarını tutar.
+    public class TaskResponsible : BaseEntity // Talep sorumluluklarını tutar.
     {
         public int Id { get; set; }
 
         #region İlişkiler
         public int TaskId { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int UserId { get; set; } // Userdan atayan kişi idsi gelecek
-        public int CreatorUserId { get; set; } // Userdan atayan kişi idsi gelecek
+        public int UserId { get; set; } // User Id
+        public int CreatorUserId { get; set; } // User Id
         #endregion
     }
 }

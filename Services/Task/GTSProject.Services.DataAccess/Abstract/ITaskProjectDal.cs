@@ -1,5 +1,5 @@
 ﻿using GTSProject.Services.Core.DataAccess;
-using GTSProject.Services.Core.Entity;
+using GTSProject.Services.Core.Entities;
 using GTSProject.Services.Entity.Concrete;
 using System;
 using System.Collections.Generic;

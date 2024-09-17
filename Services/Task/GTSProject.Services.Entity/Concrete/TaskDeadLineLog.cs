@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskDeadLineLog : IEntity // Talep yönetimi,talep son teslim tarihi loglarını tutar.
+    public class TaskDeadLineLog : BaseEntity // Talep yönetimi,talep son teslim tarihi loglarını tutar.
     {
         public int Id { get; set; }
         public DateTime DeadLine { get; set; }
@@ -10,9 +10,9 @@ namespace GTSProject.Services.Entity.Concrete
 
         #region İlişkiler
         public int TaskId { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int UserId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
         #endregion
     }
 }

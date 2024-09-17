@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskAutoAssignRule : IEntity // Otomatik talep atama kurallarını tutar.
+    public class TaskAutoAssignRule : BaseEntity // Otomatik talep atama kurallarını tutar.
     {
         public int Id { get; set; }
         public string? RuleType { get; set; }
@@ -18,7 +18,7 @@ namespace GTSProject.Services.Entity.Concrete
         public DateTime EndDateTime { get; set; }
 
         #region İlişkiler
-        public int? AssigneeId { get; set; } // User servisten gelecek
+        public int? AssigneeId { get; set; } // User Id
         #endregion
     }
 }

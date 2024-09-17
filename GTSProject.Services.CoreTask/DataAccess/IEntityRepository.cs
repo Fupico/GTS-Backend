@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

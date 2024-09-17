@@ -1,8 +1,8 @@
-﻿using GTSProject.Services.Core.Entity;
+﻿using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class Task : IEntity // Talepler
+    public class Task : BaseEntity // Talepler
     {
         public int Id { get; set; }
         public string? Subject { get; set; }
@@ -22,36 +22,38 @@ namespace GTSProject.Services.Entity.Concrete
 
         #region İlişkiler
         public int? ParentId { get; set; } // Üst task opsiyonel olarak yapılabilir
-        public Task? ParentTask { get; set; }
+        public virtual Task? ParentTask { get; set; }
 
         public int TaskProjectId { get; set; }
-        public TaskProject TaskProject { get; set; }
+        public virtual TaskProject TaskProject { get; set; }
 
         public int TaskTypeId { get; set; }
-        public TaskType TaskType { get; set; }
+        public virtual TaskType TaskType { get; set; }
 
-        public int ReporterId { get; set; } // Userdan atayan kişi idsi gelecek
-        public int AssigneeId { get; set; } // Userdan atanan kişi idsi gelecek
+        public int ReporterId { get; set; } // User Id
+        public int AssigneeId { get; set; } // User Id
 
-        public int CategoryId { get; set; }
-        public TaskCategory TaskCategory { get; set; }
+        public int TaskCategoryId { get; set; }
+        public virtual TaskCategory TaskCategory { get; set; }
 
         public int TaskStatusId { get; set; }
-        public TaskStatus TaskStatus { get; set; }
+        public virtual TaskStatus TaskStatus { get; set; }
 
         public int TaskReasonId { get; set; }
-        public TaskReason TaskReason { get; set; }
+        public virtual TaskReason TaskReason { get; set; }
 
         public int TaskSubjectTypeId { get; set; }
-        public TaskSubjectType TaskSubjectType { get; set; }
+        public virtual TaskSubjectType TaskSubjectType { get; set; }
 
-        public int CloserId { get; set; }  // Userdan kapayan kişi idsi gelecek
-        public int CloserDepartmentId { get; set; } // Kapayan departman id
+        public int CloserId { get; set; }  // User Id
+        public int CloserDepartmentId { get; set; } // Departman Id
 
         public ICollection<DailyTaskStatusLog> DailyTaskStatusLogs { get; set; }
         public ICollection<TaskAttachment> TaskAttachments { get; set; }
         public ICollection<TaskComment> TaskComments { get; set; }
-        public TaskRating TaskRating { get; set; }
+        public ICollection<TaskEffort> TaskEfforts { get; set; }
+        public ICollection<TaskHistory> TaskHistories { get; set; }
+        public ICollection<TaskRating> TaskRatings { get; set; }
         public ICollection<TaskRelation> TaskRelations { get; set; }
         public ICollection<TaskResponsible> TaskResponsibles { get; set; }
         public ICollection<TaskStatusLog> TaskStatusLogs { get; set; }

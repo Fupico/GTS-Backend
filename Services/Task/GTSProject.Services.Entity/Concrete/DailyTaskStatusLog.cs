@@ -1,8 +1,8 @@
-using GTSProject.Services.Core.Entity;
+using GTSProject.Services.Core.Entities;
 
 namespace GTSProject.Services.Entity.Concrete
 {
-    public class DailyTaskStatusLog : IEntity // Günlük talep durumlarının kayıtları içerir.
+    public class DailyTaskStatusLog : BaseEntity // Günlük talep durumlarının kayıtları içerir.
     {
         public int Id { get; set; }
         public DateTime TaskCreateDate { get; set; }
@@ -10,13 +10,15 @@ namespace GTSProject.Services.Entity.Concrete
 
         #region İlişkiler
         public int TaskId { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int AssigneeId { get; set; } // User Idsi
-        public int SprintId { get; set; } // Bununla ilgili class oluşturulacak
+        public int AssigneeId { get; set; } // User Id
+
+        public int SprintId { get; set; }
+        public Sprint Sprint { get; set; }
 
         public int TaskStatusId { get; set; }
-        public TaskStatus TaskStatus { get; set; }
+        public virtual TaskStatus TaskStatus { get; set; }
         #endregion
     }
 }
