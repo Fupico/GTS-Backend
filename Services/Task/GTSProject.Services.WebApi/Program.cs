@@ -1,4 +1,4 @@
-using GTSProject.Services.DataAccess.Concrete.EntityFramework;
+using GTSProject.Services.DataAccess.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

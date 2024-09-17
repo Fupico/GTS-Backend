@@ -20,4 +20,8 @@
     <ProjectReference Include="..\GTSProject.Services.Entity\GTSProject.Services.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>

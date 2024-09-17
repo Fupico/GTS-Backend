@@ -1,7 +1,8 @@
-﻿using GTSProject.Services.Entity.Concrete;
+﻿using GTSProject.Services.Core.Entities;
+using GTSProject.Services.Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 
-namespace GTSProject.Services.DataAccess.Concrete.EntityFramework
+namespace GTSProject.Services.DataAccess.Concrete
 {
     public class TaskServiceContext : DbContext
     {
@@ -94,5 +95,49 @@ namespace GTSProject.Services.DataAccess.Concrete.EntityFramework
         public DbSet<TribeMember> TribeMembers { get; set; }
         public DbSet<TribeMemberRole> TribeMemberRoles { get; set; }
         //public DbSet<User> Users { get; set; }
+
+
+        public override int SaveChanges()
+        {
+            UpdateAuditableEntities();
+            return base.SaveChanges();
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            UpdateAuditableEntities();
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void UpdateAuditableEntities()
+        {
+            var now = DateTime.UtcNow;
+            var userId = Guid.NewGuid();
+
+            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
+            {
+                if (entry.Entity == null) continue;
+
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreatedDate = now;
+                        entry.Entity.CreatedBy = userId;
+                        entry.Entity.IsActive = true;
+                        break;
+
+                    case EntityState.Modified:
+                        entry.Entity.UpdateDate = now;
+                        entry.Entity.UpdateBy = userId;
+                        break;
+
+                    case EntityState.Deleted:
+                        entry.Entity.DeleteDate = now;
+                        entry.Entity.IsDeleted = true;
+                        entry.State = EntityState.Modified;
+                        break;
+                }
+            }
+        }
     }
 }
