@@ -10,7 +10,6 @@ namespace GTSProject.Services.Dto.KeywordToTaskReasonDtos
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
-        public int ProductId { get; set; }
         public string? Keyword { get; set; }
         public int ReasonId { get; set; }
         public DateTime CreateDate { get; set; }

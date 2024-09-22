@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="TaskProductDtos\**" />
+    <EmbeddedResource Remove="TaskProductDtos\**" />
+    <None Remove="TaskProductDtos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TaskRelationTypeDtos\" />
+  </ItemGroup>
+
 </Project>

@@ -14,7 +14,6 @@ namespace GTSProject.Services.Dto.TaskDtos
         public int TaskSourceId { get; set; }
         public int ReporterId { get; set; }
         public int AssigneeId { get; set; }
-        public int ProductId { get; set; }
         public string? Subject { get; set; }
         public string? Description { get; set; }
         public int CategoryId { get; set; }

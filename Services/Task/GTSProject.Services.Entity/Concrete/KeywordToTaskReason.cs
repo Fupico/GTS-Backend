@@ -1,13 +1,18 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entities;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class KeywordToTaskReason // Konu başlığına girilen anahtar kelimeleri tutar.
+    public class KeywordToTaskReason : BaseEntity  // Konu başlığına girilen anahtar kelimeleri tutar.
     {
         public int Id { get; set; }
-        public int CategoryId { get; set; }
-        public int ProductId { get; set; }
-        public string? Keyword { get; set; }
-        public int ReasonId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public string Keyword { get; set; }
+
+        #region İlişkiler
+        public int TaskCategoryId { get; set; }
+        public virtual TaskCategory TaskCategory { get; set; }
+
+        public int TaskReasonId { get; set; }
+        public virtual TaskReason TaskReason { get; set; }
+        #endregion 
     }
 }
