@@ -1,21 +1,27 @@
+
+using GTSProject.Services.Business.Abstract;
+using GTSProject.Services.Business.Concrete;
+using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.DataAccess.Concrete;
+using GTSProject.Services.DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<TaskServiceContext>(cfg =>
+builder.Services.AddDbContext<TaskServiceContext>(options =>
 {
-    cfg.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value);
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<ITaskAutoAssignRuleService, TaskAutoAssignRuleManager>();
+builder.Services.AddTransient<ITaskAutoAssignRuleDal, EfTaskAutoAssignRuleDal>();
 
 var app = builder.Build();
 

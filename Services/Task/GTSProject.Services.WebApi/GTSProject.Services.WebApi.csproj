@@ -17,11 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GTSProject.Services.Business\GTSProject.Services.Business.csproj" />
     <ProjectReference Include="..\GTSProject.Services.DataAccess\GTSProject.Services.DataAccess.csproj" />
   </ItemGroup>
 

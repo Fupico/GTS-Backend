@@ -2,7 +2,6 @@
 using GTSProject.Services.Core.DataAccess.EntityFramework;
 using GTSProject.Services.DataAccess.Concrete;
 
-
 namespace GTSProject.Services.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork

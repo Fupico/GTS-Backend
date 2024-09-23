@@ -124,6 +124,7 @@ namespace GTSProject.Services.DataAccess.Concrete
                         entry.Entity.CreatedDate = now;
                         entry.Entity.CreatedBy = userId;
                         entry.Entity.IsActive = true;
+                        entry.Entity.IsDeleted = false;
                         break;
 
                     case EntityState.Modified:
@@ -133,6 +134,7 @@ namespace GTSProject.Services.DataAccess.Concrete
 
                     case EntityState.Deleted:
                         entry.Entity.DeleteDate = now;
+                        entry.Entity.IsActive = false;
                         entry.Entity.IsDeleted = true;
                         entry.State = EntityState.Modified;
                         break;

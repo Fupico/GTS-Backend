@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
+    <ProjectReference Include="..\GTSProject.Services.DataAccess\GTSProject.Services.DataAccess.csproj" />
+    <ProjectReference Include="..\GTSProject.Services.Entity\GTSProject.Services.Entity.csproj" />
   </ItemGroup>
 
 </Project>
