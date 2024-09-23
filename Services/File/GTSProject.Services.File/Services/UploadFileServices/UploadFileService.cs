@@ -112,7 +112,7 @@ namespace GTSProject.Services.File.Services.UploadFileServices
         }
 
 
-        public async Task<IDataResult<UploadFile>> GetFileById2Async(Guid id, string storageProvider)
+        public async Task<IDataResult<UploadFile>> GetFileByIdAsync(Guid id, string storageProvider)
         {
             var repository = _repositoryFactory.Create(storageProvider);
             UploadFile result = await repository.GetFileByIdAsync(id);
