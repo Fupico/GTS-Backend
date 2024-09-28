@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GTSProject.Services.Dto.TaskAutoAssignRulesDtos
+namespace GTSProject.Services.Dto.TaskAutoAssignRuleDtos
 {
-    public class UpdateTaskAutoAssignRulesDto
+    public class GetByIdTaskAutoAssignRuleDto
     {
         public int Id { get; set; }
         public string? RuleType { get; set; }
@@ -19,10 +19,7 @@ namespace GTSProject.Services.Dto.TaskAutoAssignRulesDtos
         public string? Key4 { get; set; }
         public string? Value4 { get; set; }
         public int AssigneeId { get; set; }
-        public bool IsActive { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
     }
 }

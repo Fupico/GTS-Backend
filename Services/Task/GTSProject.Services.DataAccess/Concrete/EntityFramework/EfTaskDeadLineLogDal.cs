@@ -1,15 +1,19 @@
 ﻿using GTSProject.Services.Core.DataAccess.EntityFramework;
+using GTSProject.Services.Core.UnitOfWork;
 using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GTSProject.Services.DataAccess.Concrete.EntityFramework
 {
-    public class EfTaskDeadLineLogDal(TaskServiceContext _context) : EfEntityRepositoryBase<TaskDeadLineLog, TaskServiceContext>(_context), ITaskDeadLineLogDal
+    public class EfTaskDeadLineLogDal : EfEntityRepositoryBase<TaskDeadLineLog, TaskServiceContext>, ITaskDeadLineLogDal
     {
+        private readonly TaskServiceContext _context;
+        private readonly IUnitOfWork<TaskServiceContext> _unitOfWork;
+
+        public EfTaskDeadLineLogDal(TaskServiceContext context, IUnitOfWork<TaskServiceContext> unitOfWork) : base(context, unitOfWork)
+        {
+            _context = context;
+            _unitOfWork = unitOfWork;
+        }
     }
 }

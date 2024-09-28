@@ -14,5 +14,6 @@ namespace GTSProject.Services.Business.Constants
         public static string TaskAutoAssignRuleNameInvalid = "Otomatik atama kuralı geçersiz.";
         public static string TaskAutoAssignRuleListed = "Otomatik atama kuralları listelendi.";
         public static string TaskAutoAssignRuleIdListed = "Otomatik atama kuralı listelendi.";
+        public static string TaskAutoAssignRuleNotFound = "Otomatik atama kuralı bulunamadı.";
     }
 }

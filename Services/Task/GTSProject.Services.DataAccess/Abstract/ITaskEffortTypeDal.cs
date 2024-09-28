@@ -1,4 +1,4 @@
-﻿using GTSProject.Services.Core.DataAccess;
+﻿using GTSProject.Services.Core.DataAccess.Abstract;
 using GTSProject.Services.Entity.Concrete;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace GTSProject.Services.Core.Results
+﻿namespace GTSProject.Services.Core.Utilities.Results
 {
     public class SuccessDataResult<T> : DataResult<T>
     {

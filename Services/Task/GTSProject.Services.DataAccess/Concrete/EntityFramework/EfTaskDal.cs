@@ -1,15 +1,19 @@
 ﻿using GTSProject.Services.Core.DataAccess.EntityFramework;
+using GTSProject.Services.Core.UnitOfWork;
 using GTSProject.Services.DataAccess.Abstract;
-using GTSProject.Services.Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Task = GTSProject.Services.Entity.Concrete.Task;
 
 namespace GTSProject.Services.DataAccess.Concrete.EntityFramework
 {
-    public class EfTaskDal(TaskServiceContext _context) : EfEntityRepositoryBase<Entity.Concrete.Task, TaskServiceContext>(_context), ITaskDal
+    public class EfTaskDal : EfEntityRepositoryBase<Entity.Concrete.Task, TaskServiceContext>, ITaskDal
     {
+        private readonly TaskServiceContext _context;
+        private readonly IUnitOfWork<TaskServiceContext> _unitOfWork;
+
+        public EfTaskDal(TaskServiceContext context, IUnitOfWork<TaskServiceContext> unitOfWork) : base(context, unitOfWork)
+        {
+            _context = context;
+            _unitOfWork = unitOfWork;
+        }
     }
 }

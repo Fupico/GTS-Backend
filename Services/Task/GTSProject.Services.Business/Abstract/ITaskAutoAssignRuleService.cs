@@ -1,15 +1,16 @@
-﻿using GTSProject.Services.Core.Results;
+﻿using GTSProject.Services.Core.Utilities.Results;
+using GTSProject.Services.Dto.TaskAutoAssignRuleDtos;
 using GTSProject.Services.Entity.Concrete;
 
 namespace GTSProject.Services.Business.Abstract
 {
     public interface ITaskAutoAssignRuleService
     {
-        IResult Add(TaskAutoAssignRule taskAutoAssignRule);
-        IResult Delete(TaskAutoAssignRule taskAutoAssignRule);
-        IResult Update(TaskAutoAssignRule taskAutoAssignRule);
+        Task<IResult> AddAsync(CreateTaskAutoAssignRuleDto createTaskAutoAssignRuleDto);
+        Task<IResult> DeleteAsync(int taskAutoAssignRuleId);
+        Task<IResult> UpdateAsync(UpdateTaskAutoAssignRuleDto updateTaskAutoAssignRuleDto);
 
-        IDataResult<List<TaskAutoAssignRule>> GetAll();
-        IDataResult<TaskAutoAssignRule> GetById(int taskAutoAssignRuleId);
+        Task<IDataResult<List<ResultTaskAutoAssignRuleDto>>> GetAllAsync();
+        Task<IDataResult<GetByIdTaskAutoAssignRuleDto>> GetByIdAsync(int taskAutoAssignRuleId);
     }
 }
