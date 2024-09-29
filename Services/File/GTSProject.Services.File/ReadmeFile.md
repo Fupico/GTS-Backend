@@ -1,5 +1,5 @@
-﻿
-## File Service Dizin Yapısı 
+﻿﻿
+## 📁 File Service Dizin Yapısı 
 
 ### GTSProject.Services.File  
 ├── **Controllers**  
@@ -56,24 +56,34 @@
 File Service dosya yönetimi işlevlerini mikroservis mimarisi prensiplerine uygun gerçekleştiren, modüler, esnek ve ölçeklenebilir bir yapı sunar. 
 Farklı veri kaynakları (MongoDB ve MSSQL) ile çalışabilme özelliğine sahiptir ve bu yapılar arasında geçiş yapabilecek şekilde tasarlanmıştır.
 
-💾 **Dosya Yükleme ve Yönetimi**
+### 💾 Dosya Yükleme ve Yönetimi
+
 💠Ekleme, silme, listeleme, güncelleme gibi tüm dosya yönetimi işlemlerini destekler.
+
 💠Dosyalar, ilgili meta veriler ile birlikte veritabanında saklanır.
 
-❇️ **Modüler Servis Katmanı**
+### ❇️ Modüler Servis Katmanı
+
 💠MSSQL tarafında Entity Framework kullanılır ve bu sayede ilişkisel veritabanı işlemleri yapılır.
+
 💠MongoDB tarafında ise NoSQL işlemlerini destekleyen bir yapı vardır. MongoDB için ayrı bir MongoDbContext ve repository bulunmaktadır.
 
-📇 **Repository Design Pattern**
+### 📇Repository Design Pattern
+
 💠Veritabanı işlemlerini soyutlayarak veri erişimini modüler hale getirmek ve iş mantığından ayırmak.
+
 💠Projede hem MSSQL hem de MongoDB için farklı repository'ler oluşturulmuştur:
 
-🧭 **Factory Design Pattern**
+### 🧭 Factory Design Pattern
+
 💠Hangi veri kaynağıyla (MSSQL veya MongoDB) çalışılacağına runtime'da karar verebilmek. Bu sayede uygulama, farklı ortamlara göre yapılandırılabilir.
+
 💠 Factory yapısı, istenilen veritabanına göre ilgili repository’yi sağlar.
 
-📄 **DTO (Data Transfer Object) Yapısı**
+### 📄 DTO (Data Transfer Object) Yapısı
+
 💠Dosya transfer modelleri, veriyi dış dünyaya taşımak için kullanılır. Bu sayede veriler izole edilmiş ve iş mantığı katmanında karmaşıklık en aza indirilmiştir.
 
-🖇 **AutoMapper**
+### 🖇 AutoMapper
+
 💠Veri transfer nesnelerini iş mantığı katmanından ayırarak, model ile DTO arasındaki dönüştürme süreçlerini basitleştirir ve geliştiricinin manuel mapleme işlemlerinden kaynaklanan hataları minimize eder.
