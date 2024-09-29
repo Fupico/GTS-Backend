@@ -1,78 +1,80 @@
-## File Service Dizin Yap�s� 
+## File Service Dizin Yapısı 
 
 ### GTSProject.Services.File  
-??? **Controllers**  
-?   ??? UploadFilesController.cs  
-??? **DbSettings**  
-?   ??? **Context**  
-?   ?   ??? MongoDbContext.cs  
-?   ?   ??? MssqlDbContext.cs  
-??? **Dtos**  
-?   ??? **RequestDtos**  
-?   ?   ??? **UploadFileRequestDtos**  
-?   ?   ?   ??? CreateMultipleUploadFileRequestDto.cs  
-?   ?   ?   ??? CreateUploadFileRequestDto.cs  
-?   ?   ?   ??? DeleteUploadFileRequestDto.cs  
-?   ?   ?   ??? ResultGetAllUploadFileMongoRequestDto.cs  
-?   ?   ?   ??? ResultGetAllUploadFileMssqlRequestDto.cs  
-?   ?   ?   ??? ResultGetByIdUploadFileRequestDto.cs  
-?   ?   ??? **UploadFileDtos**  
-?   ?   ?   ??? CreateUploadFileDto.cs  
-?   ?   ?   ??? UpdateUploadFileDto.cs  
-?   ?   ?   ??? ResultUploadFileDto.cs  
-?   ?   ?   ??? GetByIdUploadFileDto.cs  
-??? **Entities**  
-?   ??? UploadFile.cs  
-??? **Mapping**  
-?   ??? GeneralMapping.cs  
-??? **PublicFolder**  
-?   ??? **ResultTools**  
-?   ?   ??? DataResult.cs  
-?   ?   ??? ErrorDataResult.cs  
-?   ?   ??? ErrorResult.cs  
-?   ?   ??? IDataResult.cs  
-?   ?   ??? IResult.cs  
-?   ?   ??? Result.cs  
-?   ?   ??? SuccessDataResult.cs  
-?   ?   ??? SuccessResult.cs  
-??? **Repositories**  
-?   ??? **RepositoryFactories**  
-?   ?   ??? RepositoryFactory.cs  
-?   ??? **UploadFileRepositories**  
-?   ?   ??? IUploadFileRepository.cs  
-?   ?   ??? MongoUploadFileRepository.cs  
-?   ?   ??? MssqlUploadFileRepository.cs  
-??? **Services**  
-?   ??? **UploadFileServices**  
-?   ?   ??? IUploadFileService.cs  
-?   ?   ??? UploadFileService.cs  
-??? **wwwroot**  
-?   ??? **Uploads**  
-?       ??? MongoUpload  
-?       ??? MssqlUpload  
+### GTSProject.Services.File   
+├── **Controllers**  
+│   └── UploadFilesController.cs  
+├── **DbSettings**  
+│   ├── **Context**  
+│   │   ├── MongoDbContext.cs  
+│   │   └── MssqlDbContext.cs  
+├── **Dtos**  
+│   ├── **RequestDtos**  
+│   │   ├── **UploadFileRequestDtos**  
+│   │   │   ├── CreateMultipleUploadFileRequestDto.cs  
+│   │   │   ├── CreateUploadFileRequestDto.cs  
+│   │   │   ├── DeleteUploadFileRequestDto.cs  
+│   │   │   ├── ResultGetAllUploadFileMongoRequestDto.cs  
+│   │   │   ├── ResultGetAllUploadFileMssqlRequestDto.cs  
+│   │   │   └── ResultGetByIdUploadFileRequestDto.cs  
+│   │   ├── **UploadFileDtos**  
+│   │   │   ├── CreateUploadFileDto.cs  
+│   │   │   ├── UpdateUploadFileDto.cs  
+│   │   │   ├── ResultUploadFileDto.cs  
+│   │   │   └── GetByIdUploadFileDto.cs  
+├── **Entities**  
+│   └── UploadFile.cs  
+├── **Mapping**  
+│   └── GeneralMapping.cs  
+├── **PublicFolder**  
+│   └── **ResultTools**  
+│   │   ├── DataResult.cs  
+│   │   ├── ErrorDataResult.cs  
+│   │   ├── ErrorResult.cs  
+│   │   ├── IDataResult.cs  
+│   │   ├── IResult.cs  
+│   │   ├── Result.cs  
+│   │   ├── SuccessDataResult.cs  
+│   │   └── SuccessResult.cs  
+├── **Repositories**  
+│   ├── **RepositoryFactories**  
+│   │   └── RepositoryFactory.cs  
+│   ├── **UploadFileRepositories**  
+│   │   ├── IUploadFileRepository.cs  
+│   │   ├── MongoUploadFileRepository.cs  
+│   │   └── MssqlUploadFileRepository.cs  
+├── **Services**  
+│   └── **UploadFileServices**  
+│   │   ├── IUploadFileService.cs  
+│   │   └── UploadFileService.cs  
+├── **wwwroot**  
+│   └── **Uploads**  
+│       ├── MongoUpload  
+│       └── MssqlUpload  
 
 
-File Service dosya y�netimi i�levlerini mikroservis mimarisi prensiplerine uygun ger�ekle�tiren, mod�ler, esnek ve �l�eklenebilir bir yap� sunar. 
-Farkl� veri kaynaklar� (MongoDB ve MSSQL) ile �al��abilme �zelli�ine sahiptir ve bu yap�lar aras�nda ge�i� yapabilecek �ekilde tasarlanm��t�r.
 
-?? **Dosya Y�kleme ve Y�netimi**
-??Ekleme, silme, listeleme, g�ncelleme gibi t�m dosya y�netimi i�lemlerini destekler.
-??Dosyalar, ilgili meta veriler ile birlikte veritaban�nda saklan�r.
+File Service dosya yönetimi işlevlerini mikroservis mimarisi prensiplerine uygun gerçekleştiren, modüler, esnek ve ölçeklenebilir bir yapı sunar. 
+Farklı veri kaynakları (MongoDB ve MSSQL) ile çalışabilme özelliğine sahiptir ve bu yapılar arasında geçiş yapabilecek şekilde tasarlanmıştır.
 
-?? **Mod�ler Servis Katman�**
-??MSSQL taraf�nda Entity Framework kullan�l�r ve bu sayede ili�kisel veritaban� i�lemleri yap�l�r.
-??MongoDB taraf�nda ise NoSQL i�lemlerini destekleyen bir yap� vard�r. MongoDB i�in ayr� bir MongoDbContext ve repository bulunmaktad�r.
+?? **Dosya Yükleme ve Yönetimi**
+??Ekleme, silme, listeleme, güncelleme gibi tüm dosya yönetimi işlemlerini destekler.
+??Dosyalar, ilgili meta veriler ile birlikte veritabanında saklanır.
+
+?? **Modüler Servis Katmanı**
+??MSSQL tarafında Entity Framework kullanılır ve bu sayede ilişkisel veritabanı işlemleri yapılır.
+??MongoDB tarafında ise NoSQL işlemlerini destekleyen bir yapı vardır. MongoDB için ayrı bir MongoDbContext ve repository bulunmaktadır.
 
 ?? **Repository Design Pattern**
-??Veritaban� i�lemlerini soyutlayarak veri eri�imini mod�ler hale getirmek ve i� mant���ndan ay�rmak.
-??Projede hem MSSQL hem de MongoDB i�in farkl� repository'ler olu�turulmu�tur:
+??Veritabanı işlemlerini soyutlayarak veri erişimini modüler hale getirmek ve iş mantığından ayırmak.
+??Projede hem MSSQL hem de MongoDB için farklı repository'ler oluşturulmuştur:
 
 ?? **Factory Design Pattern**
-??Hangi veri kayna��yla (MSSQL veya MongoDB) �al���laca��na runtime'da karar verebilmek. Bu sayede uygulama, farkl� ortamlara g�re yap�land�r�labilir.
-?? Factory yap�s�, istenilen veritaban�na g�re ilgili repository�yi sa�lar.
+??Hangi veri kaynağıyla (MSSQL veya MongoDB) çalışılacağına runtime'da karar verebilmek. Bu sayede uygulama, farklı ortamlara göre yapılandırılabilir.
+?? Factory yapısı, istenilen veritabanına göre ilgili repository’yi sağlar.
 
-?? **DTO (Data Transfer Object) Yap�s�**
-??Dosya transfer modelleri, veriyi d�� d�nyaya ta��mak i�in kullan�l�r. Bu sayede veriler izole edilmi� ve i� mant��� katman�nda karma��kl�k en aza indirilmi�tir.
+?? **DTO (Data Transfer Object) Yapısı**
+??Dosya transfer modelleri, veriyi dış dünyaya taşımak için kullanılır. Bu sayede veriler izole edilmiş ve iş mantığı katmanında karmaşıklık en aza indirilmiştir.
 
 ?? **AutoMapper**
-??Veri transfer nesnelerini i� mant��� katman�ndan ay�rarak, model ile DTO aras�ndaki d�n��t�rme s�re�lerini basitle�tirir ve geli�tiricinin manuel mapleme i�lemlerinden kaynaklanan hatalar� minimize eder.
+??Veri transfer nesnelerini iş mantığı katmanından ayırarak, model ile DTO arasındaki dönüştürme süreçlerini basitleştirir ve geliştiricinin manuel mapleme işlemlerinden kaynaklanan hataları minimize eder.
