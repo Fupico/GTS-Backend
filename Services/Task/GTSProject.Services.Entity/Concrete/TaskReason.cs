@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskReason : BaseEntity // Talep nedenlerini içerir.
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         #region İlişkiler

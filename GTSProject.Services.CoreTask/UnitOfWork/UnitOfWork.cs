@@ -66,7 +66,7 @@ namespace GTSProject.Services.Core.UnitOfWork
 
         private void UpdateAuditableEntities()
         {
-            var now = DateTime.UtcNow;
+            var now = DateTime.Now;
             var userId = Guid.NewGuid();
 
             foreach (var entry in _context.ChangeTracker.Entries<BaseEntity>())

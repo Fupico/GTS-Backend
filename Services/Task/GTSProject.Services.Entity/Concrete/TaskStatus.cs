@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskStatus : BaseEntity // Talep durumlarını içerir. (statüleri)
     {
-        public int Id { get; set; }
         public string Tag { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }

@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class Task : BaseEntity // Talepler
     {
-        public int Id { get; set; }
         public string? Subject { get; set; }
         public string? Description { get; set; }
         public DateTime DeadLine { get; set; }

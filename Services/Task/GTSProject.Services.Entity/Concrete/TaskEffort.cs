@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskEffort : BaseEntity // Talep eforlarını içerir.
     {
-        public int Id { get; set; }
         public int Effort { get; set; }
         public string Description { get; set; }
         public int ConfirmedEffort { get; set; }

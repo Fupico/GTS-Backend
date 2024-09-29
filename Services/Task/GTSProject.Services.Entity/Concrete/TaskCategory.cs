@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskCategory : BaseEntity // Departman talep kategorilerini içerir.
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
         public int Group { get; set; }
         public string? GroupName { get; set; }

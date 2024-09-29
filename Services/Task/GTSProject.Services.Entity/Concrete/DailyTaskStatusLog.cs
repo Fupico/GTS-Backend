@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class DailyTaskStatusLog : BaseEntity // Günlük talep durumlarının kayıtları içerir.
     {
-        public int Id { get; set; }
         public DateTime TaskCreateDate { get; set; }
         public DateTime TaskUpdateDate { get; set; }
 

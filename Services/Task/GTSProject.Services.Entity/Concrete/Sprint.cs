@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class Sprint : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int StartDateWeekNumber { get; set; }
         public DateTime StartDate { get; set; }

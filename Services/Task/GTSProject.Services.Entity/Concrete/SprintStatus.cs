@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class SprintStatus : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Tag { get; set; }
         public string Color { get; set; }

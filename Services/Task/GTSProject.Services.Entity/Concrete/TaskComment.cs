@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskComment : BaseEntity // Talep yönetimi,talep yorumlarını tutar.
     {
-        public int Id { get; set; }
         public string? Message { get; set; }
         public bool HasAttachment { get; set; }
         public bool ShowToAllUser { get; set; }

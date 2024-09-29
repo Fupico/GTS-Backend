@@ -9,7 +9,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class Tribe : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         #region İlişkiler

@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class QuickAnswer : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Answer { get; set; }
 

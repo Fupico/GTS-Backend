@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskRating : BaseEntity // Talep değerlendirmelerini tutar.
     {
-        public int Id { get; set; }
         public int Score { get; set; }
         public string Note { get; set; }
 

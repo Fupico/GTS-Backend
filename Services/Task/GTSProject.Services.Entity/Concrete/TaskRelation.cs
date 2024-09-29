@@ -4,8 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskRelation : BaseEntity // Talep ilişkilerini içerir.
     {
-        public int Id { get; set; }
-
         #region İlişkiler
         public int TaskId1 { get; set; }
         public int TaskId2 { get; set; }

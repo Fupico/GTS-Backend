@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskAttachment : BaseEntity // Talepte eklenmiş dosyaları tutar.
     {
-        public int Id { get; set; }
         public string? FolderName { get; set; }
         public string? FileName { get; set; }
         public bool ShowToAllUser { get; set; }

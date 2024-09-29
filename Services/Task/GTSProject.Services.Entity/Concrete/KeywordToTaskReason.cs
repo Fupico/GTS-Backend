@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class KeywordToTaskReason : BaseEntity  // Konu başlığına girilen anahtar kelimeleri tutar.
     {
-        public int Id { get; set; }
         public string Keyword { get; set; }
 
         #region İlişkiler

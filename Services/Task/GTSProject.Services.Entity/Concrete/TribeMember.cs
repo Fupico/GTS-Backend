@@ -9,8 +9,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TribeMember : BaseEntity
     {
-        public int Id { get; set; }
-
         #region İlişkiler
         public int TribeId { get; set; }
         public virtual Tribe Tribe { get; set; }

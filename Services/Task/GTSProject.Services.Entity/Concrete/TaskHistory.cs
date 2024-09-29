@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskHistory : BaseEntity // Talebin tüm loglarını içerir.
     {
-        public int Id { get; set; }
         public string Message { get; set; }
 
         #region İlişkiler

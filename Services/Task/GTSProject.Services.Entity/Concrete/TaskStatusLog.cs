@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskStatusLog : BaseEntity // Talep durum kayıtlarını tutar.
     {
-        public int Id { get; set; }
         public string Description { get; set; }
 
         #region İlişkiler

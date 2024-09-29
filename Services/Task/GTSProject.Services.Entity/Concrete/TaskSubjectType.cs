@@ -4,7 +4,6 @@ namespace GTSProject.Services.Entity.Concrete
 {
     public class TaskSubjectType : BaseEntity // Talep konu türlerini tutar.(Müşteri ilişkileri departmanı)
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         #region İlişkiler
