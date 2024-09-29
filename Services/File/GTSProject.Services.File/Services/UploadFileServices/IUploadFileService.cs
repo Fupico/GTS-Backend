@@ -7,11 +7,13 @@ namespace GTSProject.Services.File.Services.UploadFileServices
 {
     public interface IUploadFileService
     {
-        Task<IDataResult<UploadFile>> GetFileByIdAsync(Guid id, string storageProvider);
-        Task<IEnumerable<UploadFile>> GetAllFilesAsync(string storageProvider);
-        Task AddFileAsync(CreateUploadFileRequestDto createUploadFileRequestDto);
-        Task UpdateFileAsync(UpdateUploadFileDto updateUploadFileDto);
-        Task DeleteFileAsync(Guid id, string storageProvider);
-        Task AddMultipleFilesAsync(CreateMultipleUploadFileRequestDto createMultipleUploadFileRequestDto); // Multiple upload fonksiyonu
+        Task<IDataResult<UploadFile>> GetFileByIdAsync(ResultGetByIdUploadFileRequestDto resultGetByIdUploadFileRequestDto);
+        Task<IDataResult<IEnumerable<UploadFile>>> GetAllFilesMssqlAsync();
+        Task<IDataResult<IEnumerable<UploadFile>>> GetAllFilesMongoAsync();
+        Task<PublicFolder.ResultTools.IResult> AddFileAsync(CreateUploadFileRequestDto createUploadFileRequestDto);
+        Task<PublicFolder.ResultTools.IResult> DeleteFileAsync(DeleteUploadFileRequestDto deleteUploadFileRequestDto);
+        Task<PublicFolder.ResultTools.IResult> AddMultipleFilesAsync(CreateMultipleUploadFileRequestDto createMultipleUploadFileRequestDto); // Multiple upload fonksiyonu
+        //Task UpdateFileAsync(UpdateUploadFileDto updateUploadFileDto); //sonra bakılacak versiyonlama yapılabilir bir düşün
     }
+
 }

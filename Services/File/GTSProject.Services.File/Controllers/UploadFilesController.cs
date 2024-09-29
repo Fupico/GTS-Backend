@@ -17,52 +17,51 @@ namespace GTSProject.Services.File.Controllers
             _uploadFileService = uploadFileService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> UploadFileList()
+        [HttpPost("get-all-upload-file-mssql")]
+        public async Task<IActionResult> GetMssqlUploadFileList()
         {
-            var values = await _uploadFileService.GetAllFilesAsync("mssql");
+            var values = await _uploadFileService.GetAllFilesMssqlAsync();
+            return Ok(values);
+        }
+        [HttpPost("get-all-upload-file-mongo")]
+        public async Task<IActionResult> GetMongoUploadFileList()
+        {
+            var values = await _uploadFileService.GetAllFilesMongoAsync();
             return Ok(values);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUploadFileById(Guid id)
+        [HttpPost("get-by-id-upload-file")]
+        public async Task<IActionResult> GetUploadFileById(ResultGetByIdUploadFileRequestDto resultGetByIdUploadFileRequestDto)
         {
-            var values = await _uploadFileService.GetFileByIdAsync(id, "mssql");
+            var values = await _uploadFileService.GetFileByIdAsync(resultGetByIdUploadFileRequestDto);
             return Ok(values);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateUploadFile([FromForm]  CreateUploadFileDto createUploadFileDto)
-        //{
-        //    await _uploadFileService.CreateUploadFileAsync(createUploadFileDto);
-        //    return Ok("Dosya başarıyla eklendi");
-        //}
-
-        [HttpPost]
+        [HttpPost("add-upload-file")]
         public async Task<IActionResult> CreateUploadFile([FromForm] CreateUploadFileRequestDto createUploadFileRequestDto)
         {
             await _uploadFileService.AddFileAsync(createUploadFileRequestDto);
             return Ok("Dosya başarıyla eklendi");
         }
-        [HttpPost("multiple-upload")]
+        [HttpPost("add-multiple-upload")]
         public async Task<IActionResult> CreateMultipleUploadFile([FromForm] CreateMultipleUploadFileRequestDto createMultipleUploadFileRequestDto)
         {
             await _uploadFileService.AddMultipleFilesAsync(createMultipleUploadFileRequestDto);
             return Ok("Dosya başarıyla eklendi");
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteUploadFile(Guid id)
+        [HttpDelete("delete-upload-file")]
+        public async Task<IActionResult> DeleteUploadFile(DeleteUploadFileRequestDto deleteUploadFileRequestDto)
         {
-            await _uploadFileService.DeleteFileAsync(id, "mssql");
+            await _uploadFileService.DeleteFileAsync(deleteUploadFileRequestDto);
             return Ok("Dosya başarıyla silindi");
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateUploadFile(UpdateUploadFileDto updateUploadFileDto)
-        {
-            await _uploadFileService.UpdateFileAsync(updateUploadFileDto);
-            return Ok("Dosya başarıyla güncellendi");
-        }
+        //[HttpPut("update-upload-file")]
+        //public async Task<IActionResult> UpdateUploadFile(UpdateUploadFileDto updateUploadFileDto)
+        //{
+        //    await _uploadFileService.UpdateFileAsync(updateUploadFileDto);
+        //    return Ok("Dosya başarıyla güncellendi");
+        //}
     }
 }
