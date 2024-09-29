@@ -23,12 +23,12 @@ namespace GTSProject.Services.File.Services.UploadFileServices
         }
 
 
-        public async Task AddFileAsync(CreateUploadFileRequestDto createUploadFileRequestDto)
+        public async Task<PublicFolder.ResultTools.IResult> AddFileAsync(CreateUploadFileRequestDto createUploadFileRequestDto)
         {
-            var repository = _repositoryFactory.Create(createUploadFileRequestDto.StorageProvider);
-
+            
             try
             {
+                var repository = _repositoryFactory.Create(createUploadFileRequestDto.StorageProvider);
                 // Benzersiz bir GUID oluşturun
                 var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(createUploadFileRequestDto.FormFile.FileName);
 
@@ -58,20 +58,21 @@ namespace GTSProject.Services.File.Services.UploadFileServices
                 uploadedFile.FilePath = filePath;
                 uploadedFile.StorageProvider = createUploadFileRequestDto.StorageProvider;
                 uploadedFile.CreatedAt = DateTime.Now;
-                uploadedFile.CreatedBy = "mssql";
+                uploadedFile.CreatedBy = "USERID";
                 uploadedFile.Size = createUploadFileRequestDto.FormFile.Length;
                 uploadedFile.ContentType = createUploadFileRequestDto.FormFile.ContentType;
 
                 // Dosya bilgilerini veritabanına ekleyin
                 await repository.AddFileAsync(uploadedFile);
-                //await _uploadedFileCollection.InsertOneAsync(uploadedFile);
+                return new SuccessResult("Dosya başarıyla eklendi.", "200");
+
             }
             catch (Exception ex)
             {
                 // Hata durumunda loglama yapabilir veya özel işlemler gerçekleştirebilirsiniz
-                Console.WriteLine($"Dosya yüklenirken bir hata oluştu: {ex.Message}");
                 // Gerekirse özel bir hata fırlatabilirsiniz
-                throw;
+                
+                return new ErrorResult($"Dosya yüklenirken bir hata oluştu: {ex.Message}", "400");
             }
 
 
@@ -79,66 +80,123 @@ namespace GTSProject.Services.File.Services.UploadFileServices
 
         }
 
-        public async Task AddMultipleFilesAsync(CreateMultipleUploadFileRequestDto createMultipleUploadFileRequestDto)
+        public async Task<PublicFolder.ResultTools.IResult> AddMultipleFilesAsync(CreateMultipleUploadFileRequestDto createMultipleUploadFileRequestDto)
         {
-            foreach (var file in createMultipleUploadFileRequestDto.FormFiles)
+            try
             {
-                //var addingFile = _mapper.Map<CreateUploadFileRequestDto>(file);
-                //addingFile.StorageProvider = createMultipleUploadFileRequestDto.StorageProvider;
-                //await AddFileAsync(addingFile);
-                var addingFile = _mapper.Map<CreateUploadFileRequestDto>(file);
-                if (addingFile == null || addingFile.FormFile == null)
+                foreach (var file in createMultipleUploadFileRequestDto.FormFiles)
                 {
-                    Console.WriteLine("Mapping failed for file: " + file.FileName);
+                    //var addingFile = _mapper.Map<CreateUploadFileRequestDto>(file);
+                    //addingFile.StorageProvider = createMultipleUploadFileRequestDto.StorageProvider;
+                    //await AddFileAsync(addingFile);
+                    var addingFile = _mapper.Map<CreateUploadFileRequestDto>(file);
+                    if (addingFile == null || addingFile.FormFile == null)
+                    {
+                        throw new Exception("Mapping failed for file: " + file.FileName);
+                        
+                    }
+                    addingFile.StorageProvider = createMultipleUploadFileRequestDto.StorageProvider;
+                    await AddFileAsync(addingFile);
+
                 }
-                addingFile.StorageProvider = createMultipleUploadFileRequestDto.StorageProvider;
-                await AddFileAsync(addingFile);
+                return new SuccessResult("Dosyalar başarıyla eklendi.", "200");
+
             }
-        }
-
-        public async Task DeleteFileAsync(Guid id, string storageProvider)
-        {
-            var repository = _repositoryFactory.Create(storageProvider);
-            await repository.DeleteFileAsync(id);
-
-        }
-
-        public async Task<IEnumerable<UploadFile>> GetAllFilesAsync(string storageProvider)
-        {
-            var repository = _repositoryFactory.Create(storageProvider);
-            return await repository.GetAllFilesAsync();
-
-
-        }
-
-
-        public async Task<IDataResult<UploadFile>> GetFileByIdAsync(Guid id, string storageProvider)
-        {
-            var repository = _repositoryFactory.Create(storageProvider);
-            UploadFile result = await repository.GetFileByIdAsync(id);
-            if(result == null)
+            catch (Exception ex)
             {
-                return new ErrorDataResult<UploadFile>(result, "Liste Boş","400");
-            }
-            return new SuccessDataResult<UploadFile>(result, "Başarılı", "200");
 
+                return new ErrorResult($"Dosyalar yüklenirken bir hata oluştu: {ex.Message}", "400");
+            }
+            
+        }
+
+        public async Task<PublicFolder.ResultTools.IResult> DeleteFileAsync(DeleteUploadFileRequestDto deleteUploadFileRequestDto)
+        {
+            try
+            {
+                var repository = _repositoryFactory.Create(deleteUploadFileRequestDto.StorageProvider);
+                await repository.DeleteFileAsync(deleteUploadFileRequestDto.Id);
+                return new SuccessResult("Dosyalar başarıyla silindi.", "200");
+
+            }
+            catch (Exception ex)
+            {
+
+                return new ErrorResult($"Dosya silinirken bir hata oluştu: {ex.Message}", "400");
+            }
+            
+        }
+
+
+        public async Task<IDataResult<IEnumerable<UploadFile>>> GetAllFilesMongoAsync()
+        {
+            ResultGetAllUploadFileMongoRequestDto resultGetAllUploadFileMongoRequestDto = new ResultGetAllUploadFileMongoRequestDto
+            {
+                StorageProvider = "mongodb"
+            };
+            try
+            {
+                var repository = _repositoryFactory.Create(resultGetAllUploadFileMongoRequestDto.StorageProvider);
+                IEnumerable<UploadFile> result = await repository.GetAllFilesAsync();
+                
+                return new SuccessDataResult<IEnumerable<UploadFile>>(result, "Başarılı", "200");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<IEnumerable<UploadFile>>(null, $"Listenme isteği başarısız oldu: {ex.Message}", "400");
+            }
+
+        }
+
+        public async Task<IDataResult<IEnumerable<UploadFile>>> GetAllFilesMssqlAsync()
+        {
+
+            ResultGetAllUploadFileMssqlRequestDto resultGetAllUploadFileMssqlRequestDto = new ResultGetAllUploadFileMssqlRequestDto
+            {
+                StorageProvider = "mssql"
+            };
+            try
+            {
+                var repository = _repositoryFactory.Create(resultGetAllUploadFileMssqlRequestDto.StorageProvider);
+                IEnumerable<UploadFile> result = await repository.GetAllFilesAsync();
+
+                return new SuccessDataResult<IEnumerable<UploadFile>>(result, "Başarılı", "200");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<IEnumerable<UploadFile>>(null, $"Listenme isteği başarısız oldu: {ex.Message}", "400");
+            }
+        }
+
+        public async Task<IDataResult<UploadFile>> GetFileByIdAsync(ResultGetByIdUploadFileRequestDto resultGetByIdUploadFileRequestDto)
+        {
+            try
+            {
+                var repository = _repositoryFactory.Create(resultGetByIdUploadFileRequestDto.StorageProvider);
+                UploadFile result = await repository.GetFileByIdAsync(resultGetByIdUploadFileRequestDto.Id);
+                return new SuccessDataResult<UploadFile>(result, "Başarılı", "200");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<UploadFile>(null, $"Görüntüleme isteği başarısız oldu: {ex.Message}", "400");
+            }
         }
 
         //Update'e tekrar bak
-        public async Task UpdateFileAsync(UploadFile file)
-        {
-            var repository = _repositoryFactory.Create(file.StorageProvider);
+        //public async Task UpdateFileAsync(UploadFile file)
+        //{
+        //    var repository = _repositoryFactory.Create(file.StorageProvider);
 
-            await repository.UpdateFileAsync(file);
+        //    await repository.UpdateFileAsync(file);
 
-        }
+        //}
 
-        public Task UpdateFileAsync(UpdateUploadFileDto updateUploadFileDto)
-        {
-            throw new NotImplementedException();
-        }
+        //public async Task UpdateFileAsync(UpdateUploadFileDto updateUploadFileDto)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-       
+
 
         //azure eklenince
         //public async Task<UploadFile> UploadFileAsync(IFormFile file, string storageProvider)
