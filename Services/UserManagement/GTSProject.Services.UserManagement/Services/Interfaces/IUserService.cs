@@ -8,5 +8,9 @@ namespace UserManagementSystem.Services.Interfaces
     {
         Task<ResponseDto<List<GetBirthdaysThisWeekDto>>> GetBirthdaysThisWeek( );
         Task<ResponseDto<GetUserProfileDto>> GetUserProfile( );
+
+        Task<ResponseDto<NoDataDto>> UpdateUserProfile(UpdateUserProfileDto updateUserProfileDto);
     }
+
+    
 }
