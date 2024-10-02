@@ -1,5 +1,4 @@
-﻿using GTSProject.Services.UserManagement.Models.Dtos.UserDtos;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserManagementSystem.Models.Dtos.BaseDtos;
@@ -35,16 +34,6 @@ namespace UserManagementSystem.Controllers
         public async Task<IActionResult> GetBirthdaysThisWeek()
         {
             var result = await _userService.GetBirthdaysThisWeek();
-
-            return ActionResultInstance(result);
-        }
-
-
-        [HttpPost("UpdateUserProfile")]
-        [AllowAnonymous]
-        public async Task<IActionResult> UpdateUserProfile(UpdateUserProfileDto updateUserProfileDto)
-        {
-            var result = await _userService.UpdateUserProfile(updateUserProfileDto);
 
             return ActionResultInstance(result);
         }
