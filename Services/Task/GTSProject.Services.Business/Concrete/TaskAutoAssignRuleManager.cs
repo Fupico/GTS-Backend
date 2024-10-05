@@ -10,8 +10,7 @@ namespace GTSProject.Services.Business.Concrete
 {
     public class TaskAutoAssignRuleManager : ServiceBase<TaskAutoAssignRule, CreateTaskAutoAssignRuleDto, UpdateTaskAutoAssignRuleDto, GetByIdTaskAutoAssignRuleDto, ResultTaskAutoAssignRuleDto, TaskServiceContext>, ITaskAutoAssignRuleService
     {
-        public TaskAutoAssignRuleManager(IUnitOfWork<TaskServiceContext> unitOfWork, IMapper mapper)
-            : base(unitOfWork, mapper)
+        public TaskAutoAssignRuleManager(IUnitOfWork<TaskServiceContext> unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
         {
         }
     }

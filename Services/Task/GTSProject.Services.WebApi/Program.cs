@@ -1,12 +1,15 @@
 
 using GTSProject.Services.Business.Abstract;
 using GTSProject.Services.Business.Concrete;
+using GTSProject.Services.Core.Business.Abstract;
 using GTSProject.Services.Core.UnitOfWork;
 using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.DataAccess.Concrete;
 using GTSProject.Services.DataAccess.Concrete.EntityFramework;
+using GTSProject.Services.Dto.TaskDtos;
 using GTSProject.Services.WebApi.Mapping;
 using Microsoft.EntityFrameworkCore;
+using Task = GTSProject.Services.Entity.Concrete.Task;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,10 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddTransient<ITaskAutoAssignRuleService, TaskAutoAssignRuleManager>();
 builder.Services.AddTransient<ITaskAutoAssignRuleDal, EfTaskAutoAssignRuleDal>();
+
+builder.Services.AddScoped<IService<Task, CreateTaskDto, UpdateTaskDto, GetByIdTaskDto, ResultTaskDto>, TaskManager>();
+builder.Services.AddTransient<ITaskService, TaskManager>();
+builder.Services.AddTransient<ITaskDal, EfTaskDal>();
 
 var app = builder.Build();
 
