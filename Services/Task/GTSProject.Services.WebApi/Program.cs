@@ -6,7 +6,9 @@ using GTSProject.Services.Core.UnitOfWork;
 using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.DataAccess.Concrete;
 using GTSProject.Services.DataAccess.Concrete.EntityFramework;
+using GTSProject.Services.Dto.TaskAutoAssignRuleDtos;
 using GTSProject.Services.Dto.TaskDtos;
+using GTSProject.Services.Entity.Concrete;
 using GTSProject.Services.WebApi.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Task = GTSProject.Services.Entity.Concrete.Task;
@@ -32,6 +34,7 @@ builder.Services.AddTransient<ITaskAutoAssignRuleService, TaskAutoAssignRuleMana
 builder.Services.AddTransient<ITaskAutoAssignRuleDal, EfTaskAutoAssignRuleDal>();
 
 builder.Services.AddScoped<IService<Task, CreateTaskDto, UpdateTaskDto, GetByIdTaskDto, ResultTaskDto>, TaskManager>();
+builder.Services.AddScoped<IService<TaskAutoAssignRule, CreateTaskAutoAssignRuleDto, UpdateTaskAutoAssignRuleDto, GetByIdTaskAutoAssignRuleDto, ResultTaskAutoAssignRuleDto>, TaskAutoAssignRuleManager>();
 builder.Services.AddTransient<ITaskService, TaskManager>();
 builder.Services.AddTransient<ITaskDal, EfTaskDal>();
 
