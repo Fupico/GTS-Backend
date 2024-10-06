@@ -27,16 +27,8 @@ builder.Services.AddDbContext<TaskServiceContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUnitOfWork<TaskServiceContext>, UnitOfWork<TaskServiceContext>>();
-builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-
-builder.Services.AddTransient<ITaskAutoAssignRuleService, TaskAutoAssignRuleManager>();
-builder.Services.AddTransient<ITaskAutoAssignRuleDal, EfTaskAutoAssignRuleDal>();
-
-builder.Services.AddScoped<IService<Task, CreateTaskDto, UpdateTaskDto, GetByIdTaskDto, ResultTaskDto>, TaskManager>();
-builder.Services.AddScoped<IService<TaskAutoAssignRule, CreateTaskAutoAssignRuleDto, UpdateTaskAutoAssignRuleDto, GetByIdTaskAutoAssignRuleDto, ResultTaskAutoAssignRuleDto>, TaskAutoAssignRuleManager>();
-builder.Services.AddTransient<ITaskService, TaskManager>();
-builder.Services.AddTransient<ITaskDal, EfTaskDal>();
+// Burada otomatik servis kayýtlarýný yapýyoruz
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 
