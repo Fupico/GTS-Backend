@@ -1,20 +1,21 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entities;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskAttachment // Talepte eklenmiş dosyaları tutar.
+    public class TaskAttachment : BaseEntity // Talepte eklenmiş dosyaları tutar.
     {
-        public int Id { get; set; }
         public string? FolderName { get; set; }
         public string? FileName { get; set; }
         public bool ShowToAllUser { get; set; }
 
         #region İlişkiler
-        public Guid TaskId { get; set; }
-        public Task Task { get; set; }
+        public int TaskId { get; set; }
+        public virtual Task Task { get; set; }
 
-        public int CommentId { get; set; }
-        public TaskComment TaskComment { get; set; }
+        public int TaskCommentId { get; set; }
+        public virtual TaskComment TaskComment { get; set; }
 
-        public Guid UserId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
         #endregion
     }
 }

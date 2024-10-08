@@ -1,14 +1,20 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entities;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskStatusLog // Talep durum kayıtlarını tutar.
+    public class TaskStatusLog : BaseEntity // Talep durum kayıtlarını tutar.
     {
-        public int Id { get; set; }
-        public int TaskId { get; set; }
-        public int StatusId { get; set; }
-        public int AssigneeId { get; set; }
-        public int UserId { get; set; }
         public string Description { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+
+        #region İlişkiler
+        public int TaskId { get; set; }
+        public virtual Task Task { get; set; }
+
+        public int TaskStatusId { get; set; }
+        public virtual TaskStatus TaskStatus { get; set; }
+
+        public int AssigneeId { get; set; } // User Id
+        public int UserId { get; set; } // User Id
+        #endregion
     }
 }

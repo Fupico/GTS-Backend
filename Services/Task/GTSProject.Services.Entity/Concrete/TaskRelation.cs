@@ -1,20 +1,18 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entities;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskRelation // Talep ilişkilerini içerir.
+    public class TaskRelation : BaseEntity // Talep ilişkilerini içerir.
     {
-        public int Id { get; set; }
-
         #region İlişkiler
-        public Guid TaskId1 { get; set; }
-        public Task Task1 { get; set; }
+        public int TaskId1 { get; set; }
+        public int TaskId2 { get; set; }
+        public virtual Task Task { get; set; }
 
-        public Guid UserId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
 
-        public Guid TaskId2 { get; set; }
-        public Task Task2 { get; set; }
-
-        public int RelationTypeId { get; set; }
-        public TaskRelationType TaskRelationType { get; set; }
+        public int TaskRelationTypeId { get; set; }
+        public virtual TaskRelationType TaskRelationType { get; set; }
         #endregion
     }
 }

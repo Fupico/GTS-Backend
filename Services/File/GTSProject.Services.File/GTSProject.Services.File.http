@@ -1,0 +1,6 @@
+@GTSProject.Services.File_HostAddress = http://localhost:5168
+
+GET {{GTSProject.Services.File_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

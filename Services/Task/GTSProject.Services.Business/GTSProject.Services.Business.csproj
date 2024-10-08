@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
+    <ProjectReference Include="..\GTSProject.Services.DataAccess\GTSProject.Services.DataAccess.csproj" />
+    <ProjectReference Include="..\GTSProject.Services.Dto\GTSProject.Services.Dto.csproj" />
+    <ProjectReference Include="..\GTSProject.Services.Entity\GTSProject.Services.Entity.csproj" />
   </ItemGroup>
 
 </Project>

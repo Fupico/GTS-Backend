@@ -1,20 +1,21 @@
-﻿namespace GTSProject.Services.Entity.Concrete
+﻿using GTSProject.Services.Core.Entities;
+
+namespace GTSProject.Services.Entity.Concrete
 {
-    public class TaskRating // Talep değerlendirmelerini tutar.
+    public class TaskRating : BaseEntity // Talep değerlendirmelerini tutar.
     {
-        public int Id { get; set; }
         public int Score { get; set; }
         public string Note { get; set; }
 
         #region İlişkiler
-        public Guid TaskId { get; set; }
-        public Task Task { get; set; }
+        public int TaskId { get; set; }
+        public virtual Task Task { get; set; }
 
-        public Guid UserId { get; set; } // User servisten gelecek
-        public int AssigneeId { get; set; } // User servisten gelecek
+        public int UserId { get; set; } // User Id
+        public int AssigneeId { get; set; } // User Id
 
         public int CategoryId { get; set; }
-        public TaskCategory TaskCategory { get; set; }
+        public virtual TaskCategory TaskCategory { get; set; }
         #endregion
     }
 }
