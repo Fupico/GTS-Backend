@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTSProject.Services.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace GTSProject.Services.Dto.TaskDeadLineLogDtos
 {
-    public class CreateTaskDeadLineLogDto
+    public class CreateTaskDeadLineLogDto : BaseDto
     {
-        public int TaskId { get; set; }
         public DateTime DeadLine { get; set; }
         public string? Description { get; set; }
-        public int UserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+
+        // Yabancı anahtarlar (ID'ler)
+        public int TaskId { get; set; }
+        public int UserId { get; set; } // User Id
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTSProject.Services.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace GTSProject.Services.Dto.KeywordToTaskReasonDtos
 {
-    public class ResultKeywordToTaskReasonDto
+    public class ResultQuickAnswerDto : BaseDto
     {
         public int Id { get; set; }
-        public int CategoryId { get; set; }
-        public string? Keyword { get; set; }
-        public int ReasonId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        // Anahtar kelime
+        public string Keyword { get; set; }
+
+        // Yabancı anahtarlar (ID'ler)
+        public int TaskCategoryId { get; set; }
+        public int TaskReasonId { get; set; }
     }
 }

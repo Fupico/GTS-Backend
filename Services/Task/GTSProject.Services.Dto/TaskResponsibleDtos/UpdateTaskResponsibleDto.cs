@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTSProject.Services.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GTSProject.Services.Dto.TaskResponsibleDtos
 {
-    public class UpdateTaskResponsibleDto
+    public class UpdateTaskResponsibleDto : BaseDto
     {
         public int Id { get; set; }
-        public int TaskId { get; set; }
-        public int UserId { get; set; }
-        public int CreatorUserId { get; set; }
+        public int TaskId { get; set; } // İlgili talep ID'si
+        public int UserId { get; set; } // Sorumlu kullanıcı ID'si
+        public int CreatorUserId { get; set; } // Oluşturan kullanıcı ID'si
     }
 }

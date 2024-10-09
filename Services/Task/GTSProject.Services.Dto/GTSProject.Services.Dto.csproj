@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TaskRelationTypeDtos\" />
+    <ProjectReference Include="..\..\..\GTSProject.Services.CoreTask\GTSProject.Services.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,14 @@
 {
     public interface IEntity
     {
-        int Id { get; set; }
+        public int Id { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        public DateTime? DeleteDate { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid? UpdateBy { get; set; }
+        public Guid? DeleteBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

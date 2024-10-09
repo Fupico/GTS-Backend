@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTSProject.Services.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace GTSProject.Services.Dto.TaskCommentDtos
 {
-    public class GetByIdTaskCommentDto
+    public class GetByIdTaskCommentDto : BaseDto
     {
         public int Id { get; set; }
-        public int TaskId { get; set; }
-        public int UserId { get; set; }
-        public int QuickAnswerId { get; set; }
         public string? Message { get; set; }
-        public int HasAttachment { get; set; }
-        public bool AgencyCanView { get; set; }
-        public bool ShowOnlyToDepartment { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public bool HasAttachment { get; set; }
+        public bool ShowToAllUser { get; set; }
+
+        // Yabancı anahtarlar (ID'ler)
+        public int TaskId { get; set; }
+        public int UserId { get; set; } // User Id
+        public int QuickAnswerId { get; set; }
     }
 }

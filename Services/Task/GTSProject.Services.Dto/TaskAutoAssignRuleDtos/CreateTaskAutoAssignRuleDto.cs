@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTSProject.Services.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GTSProject.Services.Dto.TaskAutoAssignRuleDtos
 {
-    public class CreateTaskAutoAssignRuleDto
+    public class CreateTaskAutoAssignRuleDto : BaseDto
     {
         public string? RuleType { get; set; }
         public string? Key { get; set; }
@@ -17,8 +18,10 @@ namespace GTSProject.Services.Dto.TaskAutoAssignRuleDtos
         public string? Value3 { get; set; }
         public string? Key4 { get; set; }
         public string? Value4 { get; set; }
-        public int AssigneeId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+
+        // Yabancı anahtar (ID) (opsiyonel)
+        public int? AssigneeId { get; set; } // User Id
     }
 }
