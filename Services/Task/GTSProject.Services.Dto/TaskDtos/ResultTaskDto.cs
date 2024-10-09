@@ -14,6 +14,7 @@ namespace GTSProject.Services.Dto.TaskDtos
         public string? Description { get; set; }
         public DateTime DeadLine { get; set; }
         public int WorkLoad { get; set; }
+<<<<<<< HEAD
         public int HasAttachment { get; set; }
         public int ReporterIsRight { get; set; }
         public int ReplyEmail { get; set; }
@@ -37,5 +38,15 @@ namespace GTSProject.Services.Dto.TaskDtos
         public int TaskSubjectTypeId { get; set; }
         public int CloserId { get; set; } // User Id
         public int CloserDepartmentId { get; set; } // Departman Id
+=======
+        public int PriorityOrder { get; set; }
+        public string? Color { get; set; }
+
+        public string TaskProjectName { get; set; }
+        public string TaskTypeName { get; set; }
+        public string AssigneeName { get; set; }
+        public string TaskStatusName { get; set; }
+        public string TaskCategoryName { get; set; }
+>>>>>>> 7aa54aab5141a4d312cc629ad838aa6dce26d42c
     }
 }

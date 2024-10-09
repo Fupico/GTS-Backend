@@ -1,12 +1,17 @@
 
 using GTSProject.Services.Business.Abstract;
 using GTSProject.Services.Business.Concrete;
+using GTSProject.Services.Core.Business.Abstract;
 using GTSProject.Services.Core.UnitOfWork;
 using GTSProject.Services.DataAccess.Abstract;
 using GTSProject.Services.DataAccess.Concrete;
 using GTSProject.Services.DataAccess.Concrete.EntityFramework;
+using GTSProject.Services.Dto.TaskAutoAssignRuleDtos;
+using GTSProject.Services.Dto.TaskDtos;
+using GTSProject.Services.Entity.Concrete;
 using GTSProject.Services.WebApi.Mapping;
 using Microsoft.EntityFrameworkCore;
+using Task = GTSProject.Services.Entity.Concrete.Task;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +27,8 @@ builder.Services.AddDbContext<TaskServiceContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUnitOfWork<TaskServiceContext>, UnitOfWork<TaskServiceContext>>();
-builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-
-builder.Services.AddTransient<ITaskAutoAssignRuleService, TaskAutoAssignRuleManager>();
-builder.Services.AddTransient<ITaskAutoAssignRuleDal, EfTaskAutoAssignRuleDal>();
+// Burada otomatik servis kayýtlarýný yapýyoruz
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 
