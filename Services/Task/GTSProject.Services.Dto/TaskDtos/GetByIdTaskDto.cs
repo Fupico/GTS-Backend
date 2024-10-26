@@ -1,22 +1,17 @@
-<<<<<<< HEAD
-﻿using GTSProject.Services.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-=======
-﻿using GTSProject.Services.Dto.DailyTaskStatusLogDtos;
+
+using GTSProject.Services.Core.Entities;
+
+using GTSProject.Services.Dto.DailyTaskStatusLogDtos;
 using GTSProject.Services.Dto.TaskAttachmentDtos;
 using GTSProject.Services.Dto.TaskCommentDtos;
 using GTSProject.Services.Dto.TaskEffortDtos;
 using GTSProject.Services.Dto.TaskHistoryDtos;
 using GTSProject.Services.Dto.TaskRatingDtos;
-using GTSProject.Services.Dto.TaskRelation;
+//using GTSProject.Services.Dto.TaskRelation;
 using GTSProject.Services.Dto.TaskResponsibleDtos;
-using GTSProject.Services.Dto.TaskStatusLog;
-using GTSProject.Services.Dto.TaskWatcher;
->>>>>>> 7aa54aab5141a4d312cc629ad838aa6dce26d42c
+//using GTSProject.Services.Dto.TaskStatusLog;
+//using GTSProject.Services.Dto.TaskWatcher;
+
 
 namespace GTSProject.Services.Dto.TaskDtos
 {
@@ -38,7 +33,7 @@ namespace GTSProject.Services.Dto.TaskDtos
         public int PriorityOrder { get; set; }
         public string? Color { get; set; }
 
-<<<<<<< HEAD
+
         // Yabancı anahtarlar (ID'ler)
         public int? ParentId { get; set; } // Üst task opsiyonel
         public int TaskProjectId { get; set; }
@@ -51,8 +46,8 @@ namespace GTSProject.Services.Dto.TaskDtos
         public int TaskSubjectTypeId { get; set; }
         public int CloserId { get; set; } // User Id
         public int CloserDepartmentId { get; set; } // Departman Id
-=======
-        public int? ParentId { get; set; }
+
+        //public int? ParentId { get; set; }
         public string? ParentTaskSubject { get; set; }
 
         public string TaskProjectName { get; set; }
@@ -72,10 +67,10 @@ namespace GTSProject.Services.Dto.TaskDtos
         public ICollection<ResultTaskEffortDto>? TaskEfforts { get; set; }
         public ICollection<ResultTaskHistoryDto>? TaskHistories { get; set; }
         public ICollection<ResultTaskRatingDto>? TaskRatings { get; set; }
-        public ICollection<ResultTaskRelationDto>? TaskRelations { get; set; }
+        //public ICollection<ResultTaskRelationDto>? TaskRelations { get; set; }
         public ICollection<ResultTaskResponsibleDto>? TaskResponsibles { get; set; }
-        public ICollection<ResultTaskStatusLogDto>? TaskStatusLogs { get; set; }
-        public ICollection<ResultTaskWatcherDto>? TaskWatchers { get; set; }
->>>>>>> 7aa54aab5141a4d312cc629ad838aa6dce26d42c
+        //public ICollection<ResultTaskStatusLogDto>? TaskStatusLogs { get; set; }
+        //public ICollection<ResultTaskWatcherDto>? TaskWatchers { get; set; }
+
     }
 }
