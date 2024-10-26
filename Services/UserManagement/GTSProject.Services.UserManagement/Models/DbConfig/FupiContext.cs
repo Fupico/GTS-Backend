@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using GTSProject.Services.UserManagement.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UserManagementSystem.Models.Dtos.BaseDtos;
@@ -14,6 +15,8 @@ namespace UserManagementSystem.Models.DbConfig
 
         }
         public DbSet<UserRefreshTokenDto> UserRefreshTokens { get; set; }
+        public DbSet<Training> Training { get; set; }
+        public DbSet<UserTraining> UserTraining { get; set; }
 
 
 
