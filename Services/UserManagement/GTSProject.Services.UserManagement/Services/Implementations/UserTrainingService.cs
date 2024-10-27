@@ -48,6 +48,20 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                 };
             }
 
+            // Kullanıcının daha önce bu eğitimi alıp almadığını kontrol et
+            var existingUserTraining = await _context.UserTraining
+                .FirstOrDefaultAsync(ut => ut.UserId == user.Id && ut.TrainingId == addUserTrainingDto.TrainingId);
+
+            if (existingUserTraining != null)
+            {
+                return new ResponseDto<NoDataDto>
+                {
+                    IsSuccessful = false,
+                    errors = new ErrorDto("User has already attended this training.", true),
+                    status = 404 // Bad Request
+                };
+            }
+
             var userTraining = new UserTraining
             {
                 User = user,
