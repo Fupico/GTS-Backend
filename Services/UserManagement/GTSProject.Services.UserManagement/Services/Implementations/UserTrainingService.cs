@@ -1,6 +1,4 @@
-﻿using GTSProject.Services.UserManagement.Models.Dtos.TrainingDtos;
-using GTSProject.Services.UserManagement.Models.Dtos.UserDtos;
-using GTSProject.Services.UserManagement.Models.Dtos.UserTrainingDtos;
+﻿using GTSProject.Services.UserManagement.Models.Dtos.UserTrainingDtos;
 using GTSProject.Services.UserManagement.Models.Entities;
 using GTSProject.Services.UserManagement.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -228,6 +226,54 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                 IsSuccessful = true
             };
         }
+
+        public async Task<ResponseDto<GetUserTrainingDto>> GetRandomNotAttendedTraining()
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == _dataDto.UserId.ToString());
+            if (user == null)
+            {
+                return new ResponseDto<GetUserTrainingDto>
+                {
+                    IsSuccessful = false,
+                    errors = new ErrorDto("User not found.", true),
+                    status = 404
+                };
+            }
+
+            var notAttendedTrainings = await _context.Training
+                .Where(t => !_context.UserTraining.Any(ut => ut.UserId == user.Id && ut.TrainingId == t.Id))
+                .ToListAsync();
+
+            if (!notAttendedTrainings.Any())
+            {
+                return new ResponseDto<GetUserTrainingDto>
+                {
+                    IsSuccessful = false,
+                    errors = new ErrorDto("No available trainings for recommendation.", true),
+                    status = 404
+                };
+            }
+
+            var randomTraining = notAttendedTrainings.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+
+            var resultDto = new GetUserTrainingDto
+            {
+                TrainingId = randomTraining.Id,
+                TrainingName = randomTraining.Name,
+                TrainingDescription = randomTraining.Description,
+                TrainingStartDate = randomTraining.StartDate,
+                TrainingEndDate = randomTraining.EndDate,
+                Attended = false // Kullanıcı katılmadığı için false
+            };
+
+            return new ResponseDto<GetUserTrainingDto>
+            {
+                Data = resultDto,
+                status = 200,
+                IsSuccessful = true
+            };
+        }
+
 
     }
 }

@@ -9,6 +9,7 @@ namespace GTSProject.Services.UserManagement.Services.Interfaces
         Task<ResponseDto<List<GetUserTrainingDto>>> GetUserAttendedTrainings();
         Task<ResponseDto<List<GetUserTrainingDto>>> GetUserNotAttendedTrainings();
         Task<ResponseDto<List<GetUserTrainingDto>>> GetUserRecommendedTrainings();
+        Task<ResponseDto<GetUserTrainingDto>> GetRandomNotAttendedTraining();
         Task<ResponseDto<NoDataDto>> UpdateUserTraining(UpdateUserTrainingDto updateUserTrainingDto);
     }
 }

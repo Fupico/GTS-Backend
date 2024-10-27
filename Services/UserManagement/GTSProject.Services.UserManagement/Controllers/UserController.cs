@@ -97,6 +97,15 @@ namespace UserManagementSystem.Controllers
             return ActionResultInstance(result);
         }
 
+        // Kullanıcının Katılmadığı Rastgele Eğitim Çekme
+        [HttpGet("GetRandomNotAttendedTraining")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetRandomNotAttendedTraining()
+        {
+            var result = await _userTrainingService.GetRandomNotAttendedTraining();
+            return ActionResultInstance(result);
+        }
+
 
     }
 }
