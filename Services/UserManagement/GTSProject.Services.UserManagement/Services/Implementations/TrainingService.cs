@@ -30,7 +30,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                     Location = training.Location,
                     CreatedDate = training.CreatedDate,
                     UpdatedDate = training.UpdatedDate,
-                    Statu = training.EndDate > DateTime.Now // Eğitim durumu
+                    Statu = training.Statu
                 }).ToListAsync();
 
             return new ResponseDto<List<GetTrainingDto>>
@@ -52,7 +52,8 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                 EndDate = insertTrainingDto.EndDate,
                 Location = insertTrainingDto.Location,
                 CreatedDate = DateTime.Now,
-                UpdatedDate = DateTime.Now
+                UpdatedDate = DateTime.Now,
+                Statu = true
             };
 
             await _context.Training.AddAsync(training);

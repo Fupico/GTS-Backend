@@ -48,6 +48,17 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                 };
             }
 
+            // Eğitim aktif mi kontrol et
+            if (!training.Statu)
+            {
+                return new ResponseDto<NoDataDto>
+                {
+                    IsSuccessful = false,
+                    errors = new ErrorDto("This training is passive", true),
+                    status = 404 // Bad Request
+                };
+            }
+
             // Kullanıcının daha önce bu eğitimi alıp almadığını kontrol et
             var existingUserTraining = await _context.UserTraining
                 .FirstOrDefaultAsync(ut => ut.UserId == user.Id && ut.TrainingId == addUserTrainingDto.TrainingId);
@@ -158,6 +169,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                     TrainingDescription = ut.Training.Description,
                     TrainingStartDate = ut.Training.StartDate,
                     TrainingEndDate = ut.Training.EndDate,
+                    TrainingStatu = ut.Training.Statu,
                     Attended = ut.Attended
                 })
                 .ToListAsync();
@@ -194,6 +206,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                     TrainingDescription = ut.Training.Description,
                     TrainingStartDate = ut.Training.StartDate,
                     TrainingEndDate = ut.Training.EndDate,
+                    TrainingStatu = ut.Training.Statu,
                     Attended = ut.Attended
                 })
                 .ToListAsync();
@@ -221,7 +234,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
 
             // Kullanıcının katılmadığı ve hiç almadığı eğitimleri sorguluyoruz
             var recommendedTrainings = await _context.Training
-                .Where(t => !_context.UserTraining.Any(ut => ut.UserId == user.Id && ut.TrainingId == t.Id))
+                .Where(t => t.Statu && !_context.UserTraining.Any(ut => ut.UserId == user.Id && ut.TrainingId == t.Id))
                 .Select(t => new GetUserTrainingDto
                 {
                     TrainingId = t.Id,
@@ -229,6 +242,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                     TrainingDescription = t.Description,
                     TrainingStartDate = t.StartDate,
                     TrainingEndDate = t.EndDate,
+                    TrainingStatu = t.Statu,
                     Attended = false // Kullanıcı bu eğitimi hiç almadı
                 })
                 .ToListAsync();
@@ -255,7 +269,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
             }
 
             var notAttendedTrainings = await _context.Training
-                .Where(t => !_context.UserTraining.Any(ut => ut.UserId == user.Id && ut.TrainingId == t.Id))
+                .Where(t => t.Statu && !_context.UserTraining.Any(ut => ut.UserId == user.Id && ut.TrainingId == t.Id))
                 .ToListAsync();
 
             if (!notAttendedTrainings.Any())
@@ -277,6 +291,7 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
                 TrainingDescription = randomTraining.Description,
                 TrainingStartDate = randomTraining.StartDate,
                 TrainingEndDate = randomTraining.EndDate,
+                TrainingStatu = randomTraining.Statu,
                 Attended = false // Kullanıcı katılmadığı için false
             };
 
