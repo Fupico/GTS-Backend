@@ -4,7 +4,7 @@ namespace GTSProject.Services.UserManagement.Models.Dtos.TrainingDtos
 {
     public class GetTrainingDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string? Name { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }

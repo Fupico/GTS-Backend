@@ -2,6 +2,6 @@
 {
     public class DeleteTrainingDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }

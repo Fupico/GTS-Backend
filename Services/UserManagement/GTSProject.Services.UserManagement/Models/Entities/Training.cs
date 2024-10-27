@@ -5,7 +5,7 @@ namespace GTSProject.Services.UserManagement.Models.Entities
     public class Training
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string? Name { get; set; }
         public string Description { get; set; }

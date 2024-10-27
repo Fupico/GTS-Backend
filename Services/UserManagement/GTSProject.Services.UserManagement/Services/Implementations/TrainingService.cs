@@ -45,7 +45,6 @@ namespace GTSProject.Services.UserManagement.Services.Implementations
         {
             var training = new Training
             {
-                Id = Guid.NewGuid().ToString(),
                 Name = insertTrainingDto.Name,
                 Description = insertTrainingDto.Description,
                 Duration = insertTrainingDto.Duration,

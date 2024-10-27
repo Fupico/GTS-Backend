@@ -1,4 +1,6 @@
 ﻿using GTSProject.Services.UserManagement.Models.Dtos.UserDtos;
+using GTSProject.Services.UserManagement.Models.Dtos.UserTrainingDtos;
+using GTSProject.Services.UserManagement.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +17,12 @@ namespace UserManagementSystem.Controllers
     public class UserController : CustomizedController
     {
         private readonly IUserService _userService;
+        private readonly IUserTrainingService _userTrainingService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IUserTrainingService userTrainingService)
         {
             _userService = userService;
+            _userTrainingService = userTrainingService;
         }
 
         [HttpGet("GetUserProfile")]
@@ -48,5 +52,51 @@ namespace UserManagementSystem.Controllers
 
             return ActionResultInstance(result);
         }
+
+        //Kullanıcının Eğitim Aldığını Ekleme
+        [HttpPost("AddUserTraining")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AddUserTraining([FromBody] AddUserTrainingDto addUserTrainingDto)
+        {
+            var result = await _userTrainingService.AddUserTraining(addUserTrainingDto);
+            return ActionResultInstance(result);
+        }
+
+        //Kullanıcının Aldığı Eğitimi Güncelleme
+        [HttpPut("UpdateUserTraining")]
+        public async Task<IActionResult> UpdateUserTraining([FromBody] UpdateUserTrainingDto updateUserTrainingDto)
+        {
+            var result = await _userTrainingService.UpdateUserTraining(updateUserTrainingDto);
+            return ActionResultInstance(result);
+        }
+
+        //Kullanıcının Katıldığı Eğitimleri Çekme
+        [HttpGet("GetUserAttendedTrainings")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserAttendedTrainings()
+        {
+            var result = await _userTrainingService.GetUserAttendedTrainings();
+            return ActionResultInstance(result);
+        }
+
+        //Kullanıcının Katılmadığı Eğitimleri Çekme
+        [HttpGet("GetUserNotAttendedTrainings")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserNotAttendedTrainings()
+        {
+            var result = await _userTrainingService.GetUserNotAttendedTrainings();
+            return ActionResultInstance(result);
+        }
+
+        // Kullanıcının Önerilen Eğitimlerini Çekme
+        [HttpGet("GetUserRecommendedTrainings")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserRecommendedTrainings()
+        {
+            var result = await _userTrainingService.GetUserRecommendedTrainings();
+            return ActionResultInstance(result);
+        }
+
+
     }
 }
