@@ -1,0 +1,8 @@
+@GTSProject.Services.Notif_HostAddress = http://localhost:5286
+
+GET {{GTSProject.Services.Notif_HostAddress}}/weatherforecast/
+GET {{GTSProject.Services.Notif_HostAddress}}/weatherforecast/
+
+Accept: application/json
+
+###
